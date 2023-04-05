@@ -4,7 +4,7 @@
 /* Set up some CSS variables to theme the application. */
 :root {
   --matr-navbar-bg: darkgreen;
-  --matr-navbar-bg-rgb: 0, 0, 139;
+  --matr-navbar-bg-rgb: 12, 12, 139;
   --matr-navbar-text-color: green;
   --matr-navbar-highlight-text: blue;
 }
@@ -17,7 +17,16 @@ body {
   --bs-dark-rgb: var(--matr-navbar-bg-rgb);
   background-size: cover;
   background: url("https://manoa.hawaii.edu/news/attachments/img11541_11869l.jpg");
+  color: yellow;
 }
+h1 {
+  color: white;
+}
+
+p {
+  color: yellow;
+}
+
 
 body .navbar {
   --bs-navbar-active-color: var(--matr-navbar-highlight-text);
