@@ -2,24 +2,24 @@ import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { Col, Container, Row, Table } from 'react-bootstrap';
 import { useTracker } from 'meteor/react-meteor-data';
-import { Stuffs } from '../../api/stuff/Stuff';
-import StuffItem from '../components/StuffItem';
 import LoadingSpinner from '../components/LoadingSpinner';
+import { Items } from '../../api/item/Item';
+import ItemStuff from '../components/ItemStuff';
 
 /* Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
-const ListStuff = () => {
+const ListItem = () => {
   // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
-  const { ready, stuffs } = useTracker(() => {
+  const { ready, items } = useTracker(() => {
     // Note that this subscription will get cleaned up
     // when your component is unmounted or deps change.
     // Get access to Stuff documents.
-    const subscription = Meteor.subscribe(Stuffs.userPublicationName);
+    const subscription = Meteor.subscribe(Items.userPublicationName);
     // Determine if the subscription is ready
     const rdy = subscription.ready();
     // Get the Stuff documents
-    const stuffItems = Stuffs.collection.find({}).fetch();
+    const itemStuffs = Items.collection.find({}).fetch();
     return {
-      stuffs: stuffItems,
+      items: itemStuffs,
       ready: rdy,
     };
   }, []);
@@ -28,19 +28,19 @@ const ListStuff = () => {
       <Row className="justify-content-center">
         <Col md={7}>
           <Col className="text-center">
-            <h2>List Stuff</h2>
+            <h2>List Item</h2>
           </Col>
           <Table striped bordered hover>
             <thead>
               <tr>
                 <th>Name</th>
                 <th>Quantity</th>
-                <th>Condition</th>
+                <th>Category</th>
                 <th>Edit</th>
               </tr>
             </thead>
             <tbody>
-              {stuffs.map((stuff) => <StuffItem key={stuff._id} stuff={stuff} />)}
+              {items.map((item) => <ItemStuff key={item._id} item={item} />)}
             </tbody>
           </Table>
         </Col>
@@ -49,4 +49,4 @@ const ListStuff = () => {
   ) : <LoadingSpinner />);
 };
 
-export default ListStuff;
+export default ListItem;
