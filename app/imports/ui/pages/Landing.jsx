@@ -11,7 +11,7 @@ const Landing = () => (
 
       <Col xs={8} className="d-flex flex-column justify-content-center">
         <h1>Aloha! Welcome to Manoa Trade Your Stuff</h1>
-        <p>This is a site to buy and sell your unwanted stuff for the UH Manoa community</p>
+        <p>This is a site to buy and sell your stuff for the UH Manoa community</p>
       </Col>
 
     </Row>
