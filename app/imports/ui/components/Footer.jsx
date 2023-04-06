@@ -7,7 +7,8 @@ const Footer = () => (
     <Container>
       <Col className="text-center">
         Final Project for ICS 314
-        {' '}
+        <br />
+        Spring 2023
         <br />
         University of Hawaii
         <br />

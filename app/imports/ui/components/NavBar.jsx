@@ -16,7 +16,7 @@ const NavBar = () => {
     <Navbar bg="light" expand="lg">
       <Container>
         <Navbar.Brand as={NavLink} to="/">
-          <h2>Manoa Trade your Stuff</h2>
+          <h4>Manoa Trade your Stuff Homepage</h4>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">

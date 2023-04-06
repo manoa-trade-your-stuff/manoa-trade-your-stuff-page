@@ -3,7 +3,7 @@
 
 /* Set up some CSS variables to theme the application. */
 :root {
-  --matr-navbar-bg: darkgreen;
+  --matr-navbar-bg: lightgreen;
   --matr-navbar-bg-rgb: 12, 12, 139;
   --matr-navbar-text-color: green;
   --matr-navbar-highlight-text: blue;
