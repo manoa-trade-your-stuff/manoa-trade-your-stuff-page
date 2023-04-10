@@ -18,6 +18,7 @@ import SignIn from '../pages/SignIn';
 import NotAuthorized from '../pages/NotAuthorized';
 import LoadingSpinner from '../components/LoadingSpinner';
 import UserProfile from '../pages/UserProfile';
+import EditProfile from '../pages/EditProfile';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 const App = () => {
@@ -44,8 +45,8 @@ const App = () => {
           <Route path="/admin" element={<AdminProtectedRoute ready={ready}><ListStuffAdmin /></AdminProtectedRoute>} />
           <Route path="/notauthorized" element={<NotAuthorized />} />
           <Route path="*" element={<NotFound />} />
-          //Add UserProfile Route
           <Route path="/profile" element={<ProtectedRoute><UserProfile /></ProtectedRoute>} />
+          <Route path="/editProfile" element={<ProtectedRoute><EditProfile /></ProtectedRoute>} />
         </Routes>
         <Footer />
       </div>
