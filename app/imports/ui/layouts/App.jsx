@@ -120,3 +120,4 @@ AdminProtectedRoute.defaultProps = {
 };
 
 export default App;
+
