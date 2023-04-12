@@ -17,7 +17,6 @@ if (Stuffs.collection.find().count() === 0) {
     Meteor.settings.defaultData.forEach(data => addData(data));
   }
 }
-
 const addProfile = (profile) => {
   console.log(`Adding: ${profile.lastName} (${profile.owner})`);
   Profiles.collection.insert(profile);
