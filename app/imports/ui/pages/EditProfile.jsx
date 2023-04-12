@@ -1,54 +1,70 @@
 import React from 'react';
-import { Card, Button, Container, Row, Col, Form } from 'react-bootstrap';
+import swal from 'sweetalert';
+import { Card, Col, Container, Row } from 'react-bootstrap';
+import { AutoForm, ErrorsField, HiddenField, LongTextField, SubmitField, TextField } from 'uniforms-bootstrap5';
+import { Meteor } from 'meteor/meteor';
+import { useTracker } from 'meteor/react-meteor-data';
+import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
+import { useParams } from 'react-router';
+import { Profiles } from '../../api/profile/Profiles';
+import LoadingSpinner from '../components/LoadingSpinner';
 
-const EditProfile = () => (
-  <Container className="my-5">
-    <Row>
-      <Col md={3} />
-      <Col md={6}>
-        <Card>
-          <Card.Body>
-            <Form>
-              <Form.Group className="mb-3" controlId="formName">
-                <Form.Label>Name</Form.Label>
-                <Form.Control type="text" />
-              </Form.Group>
+const bridge = new SimpleSchema2Bridge(Profiles.schema);
 
-              <Form.Group className="mb-3" controlId="formStudentID">
-                <Form.Label>Student ID</Form.Label>
-                <Form.Control type="text" />
-              </Form.Group>
+/* Renders the EditProfile page for editing a single document. */
+const EditProfile = () => {
+  // Get the documentID from the URL field. See imports/ui/layouts/App.jsx for the route containing :_id.
+  const { _id } = useParams();
+  // console.log('EditProfile', _id);
+  // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
+  const { doc, ready } = useTracker(() => {
+    // Get access to Profile documents.
+    const subscription = Meteor.subscribe(Profiles.userPublicationName);
+    // Determine if the subscription is ready
+    const rdy = subscription.ready();
+    // Get the document
+    const document = Profiles.collection.findOne(_id);
+    return {
+      doc: document,
+      ready: rdy,
+    };
+  }, [_id]);
+  // console.log('EditProfile', doc, ready);
+  // On successful submit, insert the data.
+  const submit = (data) => {
+    const { firstName, lastName, address, image, description } = data;
+    Profiles.collection.update(_id, { $set: { firstName, lastName, address, image, description } }, (error) => (error ?
+      swal('Error', error.message, 'error') :
+      swal('Success', 'Item updated successfully', 'success')));
+  };
 
-              <Form.Group className="mb-3" controlId="formEmail">
-                <Form.Label>Email</Form.Label>
-                <Form.Control type="email" />
-              </Form.Group>
-
-              <Form.Group className="mb-3" controlId="formPhone">
-                <Form.Label>Phone</Form.Label>
-                <Form.Control type="text" />
-              </Form.Group>
-
-              <Form.Group className="mb-3" controlId="formPosition">
-                <Form.Label>Position</Form.Label>
-                <Form.Control type="text" />
-              </Form.Group>
-
-              <Form.Group className="mb-3" controlId="formAbout">
-                <Form.Label>About</Form.Label>
-                <Form.Control as="textarea" rows={3} />
-              </Form.Group>
-
-              <Button variant="secondary" type="submit">
-                Save Changes
-              </Button>
-            </Form>
-          </Card.Body>
-        </Card>
-      </Col>
-      <Col md={3} />
-    </Row>
-  </Container>
-);
+  return ready ? (
+    <Container className="py-3">
+      <Row className="justify-content-center">
+        <Col xs={10}>
+          <Col className="text-center"><h2>Edit Profile</h2></Col>
+          <AutoForm schema={bridge} onSubmit={data => submit(data)} model={doc}>
+            <Card>
+              <Card.Body>
+                <Row>
+                  <Col><TextField name="firstName" /></Col>
+                  <Col><TextField name="lastName" /></Col>
+                </Row>
+                <Row>
+                  <Col><TextField name="address" /></Col>
+                  <Col><TextField name="image" /></Col>
+                </Row>
+                <LongTextField name="description" />
+                <SubmitField value="Submit" />
+                <ErrorsField />
+                <HiddenField name="owner" />
+              </Card.Body>
+            </Card>
+          </AutoForm>
+        </Col>
+      </Row>
+    </Container>
+  ) : <LoadingSpinner />;
+};
 
 export default EditProfile;

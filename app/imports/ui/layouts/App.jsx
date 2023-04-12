@@ -6,10 +6,6 @@ import { Roles } from 'meteor/alanning:roles';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import Footer from '../components/Footer';
 import Landing from '../pages/Landing';
-import ListStuff from '../pages/ListStuff';
-import ListStuffAdmin from '../pages/ListStuffAdmin';
-import AddStuff from '../pages/AddStuff';
-import EditStuff from '../pages/EditStuff';
 import NotFound from '../pages/NotFound';
 import SignUp from '../pages/SignUp';
 import SignOut from '../pages/SignOut';
@@ -17,8 +13,22 @@ import NavBar from '../components/NavBar';
 import SignIn from '../pages/SignIn';
 import NotAuthorized from '../pages/NotAuthorized';
 import LoadingSpinner from '../components/LoadingSpinner';
-import UserProfile from '../pages/UserProfile';
+
+/** Profile */
+import ListProfiles from '../pages/ListProfiles';
+import ListProfilesAdmin from '../pages/ListProfilesAdmin';
+import AddProfile from '../pages/AddProfile';
 import EditProfile from '../pages/EditProfile';
+
+/** Stuff */
+// import ListStuff from '../pages/ListStuff';
+// import AddStuff from '../pages/AddStuff';
+import EditStuff from '../pages/EditStuff';
+import ListStuffAdmin from '../pages/ListStuffAdmin';
+
+/** Item */
+import ListItem from '../pages/ListItem';
+import AddItem from '../pages/AddItem';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 const App = () => {
@@ -38,15 +48,19 @@ const App = () => {
           <Route path="/signup" element={<SignUp />} />
           <Route path="/signout" element={<SignOut />} />
           <Route path="/home" element={<ProtectedRoute><Landing /></ProtectedRoute>} />
-          <Route path="/userprofile" element={<ProtectedRoute><UserProfile /></ProtectedRoute>} />
-          <Route path="/list" element={<ProtectedRoute><ListStuff /></ProtectedRoute>} />
-          <Route path="/add" element={<ProtectedRoute><AddStuff /></ProtectedRoute>} />
-          <Route path="/edit/:_id" element={<ProtectedRoute><EditStuff /></ProtectedRoute>} />
-          <Route path="/admin" element={<AdminProtectedRoute ready={ready}><ListStuffAdmin /></AdminProtectedRoute>} />
           <Route path="/notauthorized" element={<NotAuthorized />} />
           <Route path="*" element={<NotFound />} />
-          <Route path="/profile" element={<ProtectedRoute><UserProfile /></ProtectedRoute>} />
-          <Route path="/editProfile" element={<ProtectedRoute><EditProfile /></ProtectedRoute>} />
+
+          <Route path="/listProfile" element={<ProtectedRoute><ListProfiles /></ProtectedRoute>} />
+          <Route path="/addProfile" element={<ProtectedRoute><AddProfile /></ProtectedRoute>} />
+          <Route path="/editProfile/:_id" element={<ProtectedRoute><EditProfile /></ProtectedRoute>} />
+          <Route path="/admin" element={<AdminProtectedRoute ready={ready}><ListProfilesAdmin /></AdminProtectedRoute>} />
+
+          <Route path="/addItem" element={<ProtectedRoute><AddItem /></ProtectedRoute>} />
+          <Route path="/listItem" element={<ProtectedRoute><ListItem /></ProtectedRoute>} />
+
+          <Route path="/edit/:_id" element={<ProtectedRoute><EditStuff /></ProtectedRoute>} />
+          <Route path="/admin" element={<AdminProtectedRoute ready={ready}><ListStuffAdmin /></AdminProtectedRoute>} />
         </Routes>
         <Footer />
       </div>
