@@ -1,6 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import { Stuffs } from '../../api/stuff/Stuff.js';
-import { Contacts } from '../../api/contact/Contacts';
+import { Profiles } from '../../api/profile/Profiles';
 
 /* eslint-disable no-console */
 
@@ -18,14 +18,14 @@ if (Stuffs.collection.find().count() === 0) {
   }
 }
 
-const addContact = (contact) => {
-  console.log(`  Adding: ${contact.name} (${contact.owner})`);
-  Contacts.collection.insert(contact);
+const addProfile = (profile) => {
+  console.log(`Adding: ${profile.lastName} (${profile.owner})`);
+  Profiles.collection.insert(profile);
 };
 
-if (Contacts.collection.find().count() === 0) {
-  if (Meteor.settings.defaultContacts) {
-    console.log('Creating default contacts.');
-    Meteor.settings.defaultContacts.forEach(contact => addContact(contact));
+if (Profiles.collection.find().count() === 0) {
+  if (Meteor.settings.defaultProfiles) {
+    console.log('Creating default profiles.');
+    Meteor.settings.defaultProfiles.forEach(profile => addProfile(profile));
   }
 }
