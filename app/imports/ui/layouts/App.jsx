@@ -19,9 +19,6 @@ import ListProfiles from '../pages/ListProfiles';
 import ListProfilesAdmin from '../pages/ListProfilesAdmin';
 import AddProfile from '../pages/AddProfile';
 import EditProfile from '../pages/EditProfile';
-import ListItem from '../pages/ListItem';
-import AddItem from '../pages/AddItem';
-import UserProfile2 from '../pages/UserProfile2';
 
 /** Stuff */
 // import ListStuff from '../pages/ListStuff';
@@ -51,7 +48,6 @@ const App = () => {
           <Route path="/signup" element={<SignUp />} />
           <Route path="/signout" element={<SignOut />} />
           <Route path="/home" element={<ProtectedRoute><Landing /></ProtectedRoute>} />
-
           <Route path="/notauthorized" element={<NotAuthorized />} />
           <Route path="*" element={<NotFound />} />
 
@@ -120,4 +116,3 @@ AdminProtectedRoute.defaultProps = {
 };
 
 export default App;
-

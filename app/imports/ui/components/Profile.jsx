@@ -19,7 +19,7 @@ const Profile = ({ profile, notes }) => (
         {notes.map((note) => <Note key={note._id} note={note} />)}
       </ListGroup>
       <AddNote owner={profile.owner} profileId={profile._id} />
-      <Link to={`/edit/${profile._id}`}>Edit</Link>
+      <Link to={`/editProfile/${profile._id}`}>Edit</Link>
     </Card.Body>
   </Card>
 );
