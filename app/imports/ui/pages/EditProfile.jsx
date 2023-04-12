@@ -32,8 +32,8 @@ const EditProfile = () => {
   // console.log('EditProfile', doc, ready);
   // On successful submit, insert the data.
   const submit = (data) => {
-    const { firstName, lastName, address, image, description } = data;
-    Profiles.collection.update(_id, { $set: { firstName, lastName, address, image, description } }, (error) => (error ?
+    const { firstName, lastName, studentId, email, phone, position, image, description } = data;
+    Profiles.collection.update(_id, { $set: { firstName, lastName, studentId, email, phone, position, image, description } }, (error) => (error ?
       swal('Error', error.message, 'error') :
       swal('Success', 'Item updated successfully', 'success')));
   };
@@ -51,7 +51,12 @@ const EditProfile = () => {
                   <Col><TextField name="lastName" /></Col>
                 </Row>
                 <Row>
-                  <Col><TextField name="address" /></Col>
+                  <Col><TextField name="studentId" /></Col>
+                  <Col><TextField name="email" /></Col>
+                </Row>
+                <Row>
+                  <Col><TextField name="phone" /></Col>
+                  <Col><TextField name="position" /></Col>
                   <Col><TextField name="image" /></Col>
                 </Row>
                 <LongTextField name="description" />

@@ -11,7 +11,10 @@ import { Profiles } from '../../api/profile/Profiles';
 const formSchema = new SimpleSchema({
   firstName: String,
   lastName: String,
-  address: String,
+  studentId: Number,
+  email: String,
+  phone: Number,
+  position: String,
   image: String,
   description: String,
 });
@@ -23,10 +26,10 @@ const AddProfile = () => {
 
   // On submit, insert the data.
   const submit = (data, formRef) => {
-    const { firstName, lastName, address, image, description } = data;
+    const { firstName, lastName, studentId, email, phone, position, image, description } = data;
     const owner = Meteor.user().username;
     Profiles.collection.insert(
-      { firstName, lastName, address, image, description, owner },
+      { firstName, lastName, studentId, email, phone, position, image, description, owner },
       (error) => {
         if (error) {
           swal('Error', error.message, 'error');
@@ -53,7 +56,12 @@ const AddProfile = () => {
                   <Col><TextField name="lastName" /></Col>
                 </Row>
                 <Row>
-                  <Col><TextField name="address" /></Col>
+                  <Col><TextField name="studentId" /></Col>
+                  <Col><TextField name="email" /></Col>
+                </Row>
+                <Row>
+                  <Col><TextField name="phone" /></Col>
+                  <Col><TextField name="position" /></Col>
                   <Col><TextField name="image" /></Col>
                 </Row>
                 <LongTextField name="description" />

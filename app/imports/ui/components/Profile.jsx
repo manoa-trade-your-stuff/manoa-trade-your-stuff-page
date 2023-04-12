@@ -7,14 +7,17 @@ import AddNote from './AddNote';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 const Profile = ({ profile, notes }) => (
-  <Card className="h-100">
+  <Card className="h-100" style={{ width: '400px' }}>
     <Card.Header>
-      <Image src={profile.image} width={75} />
+      <Image src={profile.image} width={300} />
       <Card.Title>{profile.firstName} {profile.lastName}</Card.Title>
-      <Card.Subtitle>{profile.address}</Card.Subtitle>
+      <Card.Subtitle> Student ID: {profile.studentId}</Card.Subtitle>
+      <Card.Subtitle> Email: {profile.email}</Card.Subtitle>
+      <Card.Subtitle> Phone: {profile.phone}</Card.Subtitle>
+      <Card.Subtitle> Position: {profile.position}</Card.Subtitle>
     </Card.Header>
     <Card.Body>
-      <Card.Text>{profile.description}</Card.Text>
+      <Card.Text> About {profile.description}</Card.Text>
       <ListGroup variant="flush">
         {notes.map((note) => <Note key={note._id} note={note} />)}
       </ListGroup>
@@ -29,7 +32,10 @@ Profile.propTypes = {
   profile: PropTypes.shape({
     firstName: PropTypes.string,
     lastName: PropTypes.string,
-    address: PropTypes.string,
+    studentId: PropTypes.number,
+    email: PropTypes.string,
+    phone: PropTypes.number,
+    position: PropTypes.string,
     image: PropTypes.string,
     description: PropTypes.string,
     owner: PropTypes.string,

@@ -14,7 +14,10 @@ class ProfilesCollection {
     this.schema = new SimpleSchema({
       firstName: String,
       lastName: String,
-      address: String,
+      studentId: Number,
+      email: String,
+      phone: Number,
+      position: String,
       image: String,
       description: String,
       owner: String,

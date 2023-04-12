@@ -8,7 +8,10 @@ const ProfileAdmin = ({ profile }) => (
     <Card.Header>
       <Image src={profile.image} width={75} />
       <Card.Title>{profile.firstName} {profile.lastName}</Card.Title>
-      <Card.Subtitle>{profile.address}</Card.Subtitle>
+      <Card.Subtitle>{profile.studentId}</Card.Subtitle>
+      <Card.Subtitle>{profile.email}</Card.Subtitle>
+      <Card.Subtitle>{profile.phone}</Card.Subtitle>
+      <Card.Subtitle>{profile.position}</Card.Subtitle>
     </Card.Header>
     <Card.Body>
       <Card.Text>{profile.description}</Card.Text>
@@ -22,7 +25,10 @@ ProfileAdmin.propTypes = {
   profile: PropTypes.shape({
     firstName: PropTypes.string,
     lastName: PropTypes.string,
-    address: PropTypes.string,
+    studentId: PropTypes.number,
+    email: PropTypes.string,
+    phone: PropTypes.number,
+    position: PropTypes.string,
     image: PropTypes.string,
     description: PropTypes.string,
     owner: PropTypes.string,
