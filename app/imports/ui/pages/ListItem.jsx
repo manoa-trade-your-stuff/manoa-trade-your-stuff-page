@@ -1,21 +1,52 @@
 import React from 'react';
-import { Col, Container, Image, Row } from 'react-bootstrap';
+import { Meteor } from 'meteor/meteor';
+import { Col, Container, Row, Table } from 'react-bootstrap';
+import { useTracker } from 'meteor/react-meteor-data';
+import { Stuffs } from '../../api/stuff/Stuff';
+import StuffItem from '../components/StuffItem';
+import LoadingSpinner from '../components/LoadingSpinner';
 
-/* A simple static component to render some text for the landing page. */
-const Landing = () => (
-  <Container id="landing-page" fluid className="py-3">
-    <Row className="align-middle text-center">
-      <Col xs={4}>
-        <Image roundedCircle src="/images/manoaseal_transparent.png" width="150px" />
-      </Col>
+/* Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
+const ListItem = () => {
+  // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
+  const { ready, stuffs } = useTracker(() => {
+    // Note that this subscription will get cleaned up
+    // when your component is unmounted or deps change.
+    // Get access to Stuff documents.
+    const subscription = Meteor.subscribe(Stuffs.userPublicationName);
+    // Determine if the subscription is ready
+    const rdy = subscription.ready();
+    // Get the Stuff documents
+    const stuffItems = Stuffs.collection.find({}).fetch();
+    return {
+      stuffs: stuffItems,
+      ready: rdy,
+    };
+  }, []);
+  return (ready ? (
+    <Container className="py-3">
+      <Row className="justify-content-center">
+        <Col md={7}>
+          <Col className="text-center">
+            <h2>List an Item</h2>
+          </Col>
+          <Table striped bordered hover>
+            <thead>
+            <tr>
+              <th>Name</th>
+              <th>Quantity</th>
+              <th>Condition</th>
+              <th>Edit</th>
+            </tr>
+            </thead>
+            <tbody>
+            {stuffs.map((stuff) => <StuffItem key={stuff._id} stuff={stuff} />)}
+            </tbody>
+          </Table>
+        </Col>
+      </Row>
+    </Container>
+  ) : <LoadingSpinner />);
+};
 
-      <Col xs={8} className="d-flex flex-column justify-content-center">
-        <h1>Aloha! Welcome to Manoa Trade Your Stuff</h1>
-        <p>This is a site to buy and sell your stuff for the UH Manoa community</p>
-      </Col>
-
-    </Row>
-  </Container>
-);
-
-export default Landing;
+export default ListItem;
