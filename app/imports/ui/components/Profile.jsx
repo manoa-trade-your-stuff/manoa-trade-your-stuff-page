@@ -3,37 +3,37 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { Card, Image } from 'react-bootstrap';
 
-/** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 const Profile = ({ profile }) => (
-  <Card className="h-100" style={{ width: '400px' }}>
+  <Card className="h-100 mx-auto" style={{ width: '350px', fontFamily: 'Trebuchet MS, sans-serif' }}>
     <Card.Header>
-      <Image src={profile.image} width={300} />
-      <Card.Title>{profile.firstName} {profile.lastName}</Card.Title>
+      <div className="d-flex justify-content-center">
+        <Image src={profile.image} width={300} />
+      </div>
     </Card.Header>
     <Card.Body>
-      <Card.Subtitle> Student ID: {profile.studentId}</Card.Subtitle>
-      <Card.Subtitle> Email: {profile.email}</Card.Subtitle>
-      <Card.Subtitle> Phone: {profile.phone}</Card.Subtitle>
-      <Card.Subtitle> Position: {profile.position}</Card.Subtitle>
-      <Card.Subtitle> About: {profile.description}</Card.Subtitle>
+      <Card.Title className="mb-3" style={{ fontSize: '30px', fontWeight: 'bold' }}>{profile.firstName} {profile.lastName}</Card.Title>
+      <Card.Subtitle className="mb-3" style={{ fontSize: '15px', fontWeight: 'bold' }}>Student ID: {profile.studentId}</Card.Subtitle>
+      <Card.Subtitle className="mb-3" style={{ fontSize: '15px', fontWeight: 'bold' }}>Email: {profile.email}</Card.Subtitle>
+      <Card.Subtitle className="mb-3" style={{ fontSize: '15px', fontWeight: 'bold' }}>Phone: {profile.phone}</Card.Subtitle>
+      <Card.Subtitle className="mb-3" style={{ fontSize: '15px', fontWeight: 'bold' }}>Position: {profile.position}</Card.Subtitle>
+      <Card.Subtitle className="mb-3" style={{ fontSize: '15px', fontWeight: 'bold' }}>About: {profile.description}</Card.Subtitle>
       <Link to={`/editProfile/${profile._id}`}>Edit</Link>
     </Card.Body>
   </Card>
 );
 
-// Require a document to be passed to this component.
 Profile.propTypes = {
   profile: PropTypes.shape({
-    firstName: PropTypes.string,
-    lastName: PropTypes.string,
-    studentId: PropTypes.number,
-    email: PropTypes.string,
-    phone: PropTypes.number,
-    position: PropTypes.string,
-    image: PropTypes.string,
-    description: PropTypes.string,
+    firstName: PropTypes.string.isRequired,
+    lastName: PropTypes.string.isRequired,
+    studentId: PropTypes.number.isRequired,
+    email: PropTypes.string.isRequired,
+    phone: PropTypes.number.isRequired,
+    position: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
     owner: PropTypes.string,
-    _id: PropTypes.string,
+    _id: PropTypes.string.isRequired,
   }).isRequired,
 };
 
