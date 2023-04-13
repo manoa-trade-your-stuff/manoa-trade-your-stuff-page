@@ -1,18 +1,40 @@
 import React from 'react';
-import { Row, Col, Button } from 'react-bootstrap';
+import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
+import { Card, Image } from 'react-bootstrap';
 
-const Categories = () => (
-  <Row className="justify-content-center pt-5" id="Middle">
-    <Col className="d-flex justify-content-center">
-      <h1>Category</h1>
-    </Col>
-    <Col>
-      <h1><Button variant="danger" id="buttonSpace">BOOK</Button></h1>
-      <h1><Button variant="danger" id="buttonSpace">ELECTRONIC</Button></h1>
-      <h1><Button variant="danger" id="buttonSpace">CLOTHS</Button></h1>
-      <h1><Button variant="danger" id="buttonSpace">STUFF</Button></h1>
-    </Col>
-  </Row>
+/** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
+const Category = ({ category }) => (
+  <Card className="h-100" style={{ width: '400px' }}>
+    <Card.Header>
+      <Image src={category.image} width={300} />
+      <Card.Title>{category.name}</Card.Title>
+    </Card.Header>
+    <Card.Body>
+      <Card.Subtitle> Student ID: {category.studentId}</Card.Subtitle>
+      <Card.Subtitle> Email: {category.email}</Card.Subtitle>
+      <Card.Subtitle> Phone: {category.phone}</Card.Subtitle>
+      <Card.Subtitle> Position: {category.position}</Card.Subtitle>
+      <Card.Subtitle> About: {category.description}</Card.Subtitle>
+      <Link to={`/editcategory/${category._id}`}>Edit</Link>
+    </Card.Body>
+  </Card>
 );
 
-export default Categories;
+// Require a document to be passed to this component.
+Category.propTypes = {
+  category: PropTypes.shape({
+    firstName: PropTypes.string,
+    lastName: PropTypes.string,
+    studentId: PropTypes.number,
+    email: PropTypes.string,
+    phone: PropTypes.number,
+    position: PropTypes.string,
+    image: PropTypes.string,
+    description: PropTypes.string,
+    owner: PropTypes.string,
+    _id: PropTypes.string,
+  }).isRequired,
+};
+
+export default Category;
