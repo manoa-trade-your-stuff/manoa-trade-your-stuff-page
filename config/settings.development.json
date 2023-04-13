@@ -8,30 +8,23 @@
     { "email": "admin@foo.com", "password": "changeme", "role": "admin" },
     { "email": "john@foo.com", "password": "changeme" }
   ],
-
-  "defaultData": [
-    { "name": "Basket", "quantity": 3, "owner": "john@foo.com", "condition": "excellent" },
-    { "name": "Bicycle", "quantity": 2, "owner": "john@foo.com", "condition": "poor" },
-    { "name": "Banana", "quantity": 2, "owner": "admin@foo.com", "condition": "good" },
-    { "name": "Boogie Board", "quantity": 2, "owner": "admin@foo.com", "condition": "excellent" }
-  ],
-  "defaultContacts": [{
-    "firstName": "Philip", "lastName": "Johnson", "address": "POST 307, University of Hawaii",
+  "defaultProfiles": [{
+    "firstName": "Philip", "lastName": "Johnson", "studentId": 12345678, "email": "john@foo.com", "phone": 80812345678, "position": "Student",
     "image": "https://github.com/philipmjohnson.png",
     "description": "I am a Professor of Information and Computer Sciences at the University of Hawaii, Director of the Collaborative Software Development Laboratory, and the CEO of OpenPowerQuality.com.",
     "owner": "john@foo.com"
   },
     {
-      "firstName": "Henri", "lastName": "Casanova", "address": "POST 307, University of Hawaii",
-      "image": "https://avatars0.githubusercontent.com/u/7494478?s=460&v=4",
-      "description": "I am originally from France. I maintain a list of reports from my surf sessions. I have proof that I ran the Hana relay with an actual Team.",
-      "owner": "john@foo.com"
-    },
-    {
-      "firstName": "Kim", "lastName": "Binsted", "address": "POST 307, University of Hawaii",
-      "image": "https://www.ics.hawaii.edu/wp-content/uploads/2013/08/kim_binsted-square-300x300.jpg",
-      "description": "Kim Binsted received her BSc in Physics at McGill (1991), and her PhD in Artificial Intelligence from the University of Edinburgh (1996). Her thesis topic was the computational modeling and generation of punning riddles, and her program, JAPE (Joke Analysis and Production Engine), generated puns such as \"What do you call a Martian who drinks beer? An ale-ien!\".",
+      "firstName": "Admin", "lastName": "1", "studentId": 11111111, "email": "admin@foo.com", "phone": 8081111111, "position": "Student",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQil_A9l5arpAJ3-RB-l69EeKO-YjtOjZKxgQ&usqp=CAU",
+      "description": "This is an admin account.",
       "owner": "admin@foo.com"
     }
+  ],
+  "defaultData": [
+    { "name": "Basket", "quantity": 3, "owner": "john@foo.com", "condition": "excellent" },
+    { "name": "Bicycle", "quantity": 2, "owner": "john@foo.com", "condition": "poor" },
+    { "name": "Banana", "quantity": 2, "owner": "admin@foo.com", "condition": "good" },
+    { "name": "Boogie Board", "quantity": 2, "owner": "admin@foo.com", "condition": "excellent" }
   ]
 }

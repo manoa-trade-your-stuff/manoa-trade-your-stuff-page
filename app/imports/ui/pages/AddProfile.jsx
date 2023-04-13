@@ -5,6 +5,7 @@ import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import SimpleSchema from 'simpl-schema';
+import { useNavigate } from 'react-router-dom'; // Redirect the user to the homepage after successful form submission
 import { Profiles } from '../../api/profile/Profiles';
 
 // Create a schema to specify the structure of the data to appear in the form.
@@ -23,6 +24,7 @@ const bridge = new SimpleSchema2Bridge(formSchema);
 
 /* Renders the AddStuff page for adding a document. */
 const AddProfile = () => {
+  const redirect = useNavigate();
 
   // On submit, insert the data.
   const submit = (data, formRef) => {
@@ -34,8 +36,9 @@ const AddProfile = () => {
         if (error) {
           swal('Error', error.message, 'error');
         } else {
-          swal('Success', 'Item added successfully', 'success');
+          swal('Success', 'Profile added successfully', 'success');
           formRef.reset();
+          redirect('/home');
         }
       },
     );

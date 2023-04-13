@@ -1,7 +1,7 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { useTracker } from 'meteor/react-meteor-data';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import { Roles } from 'meteor/alanning:roles';
 import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
 import { BoxArrowRight, PersonFill, PersonPlusFill } from 'react-bootstrap-icons';
@@ -11,6 +11,11 @@ const NavBar = () => {
   const { currentUser } = useTracker(() => ({
     currentUser: Meteor.user() ? Meteor.user().username : '',
   }), []);
+
+  const location = useLocation();
+  if (location.pathname === '/addProfile') {
+    return null; // Hide Navbar on the addProfile page
+  }
 
   return (
     <Navbar bg="light" expand="lg">
@@ -22,9 +27,7 @@ const NavBar = () => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto justify-content-start">
             {currentUser ? ([
-
-              <Nav.Link id="add-stuff-nav" as={NavLink} to="/addProfile" key="addProfile">Add profile</Nav.Link>,
-              <Nav.Link id="list-stuff-nav" as={NavLink} to="/listProfile" key="listProfile">List profiles</Nav.Link>,
+              <Nav.Link id="list-stuff-nav" as={NavLink} to="/listProfile" key="listProfile">Profile</Nav.Link>,
               /** Item */
               <Nav.Link id="add-stuff-nav" as={NavLink} to="/addItem" key="addItem">Add an Item</Nav.Link>,
               <Nav.Link id="list-stuff-nav" as={NavLink} to="/listItem" key="listItem">Items List</Nav.Link>,
@@ -63,5 +66,4 @@ const NavBar = () => {
     </Navbar>
   );
 };
-
 export default NavBar;
