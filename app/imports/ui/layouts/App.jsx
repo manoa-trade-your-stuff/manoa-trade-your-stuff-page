@@ -30,6 +30,8 @@ import ListStuffAdmin from '../pages/ListStuffAdmin';
 import ListItem from '../pages/ListItem';
 import AddItem from '../pages/AddItem';
 
+import Category from '../components/Category';
+
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 const App = () => {
   const { ready } = useTracker(() => {
@@ -58,6 +60,7 @@ const App = () => {
 
           <Route path="/addItem" element={<ProtectedRoute><AddItem /></ProtectedRoute>} />
           <Route path="/listItem" element={<ProtectedRoute><ListItem /></ProtectedRoute>} />
+          <Route path="/category" element={<ProtectedRoute><Category /></ProtectedRoute>} />
 
           <Route path="/edit/:_id" element={<ProtectedRoute><EditStuff /></ProtectedRoute>} />
           <Route path="/admin" element={<AdminProtectedRoute ready={ready}><ListStuffAdmin /></AdminProtectedRoute>} />
