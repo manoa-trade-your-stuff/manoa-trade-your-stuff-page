@@ -8,6 +8,8 @@ const StuffItem = ({ stuff }) => (
     <td>{stuff.name}</td>
     <td>{stuff.quantity}</td>
     <td>{stuff.condition}</td>
+    <td>{stuff.category}</td>
+    <td>{stuff.description}</td>
     <td>
       <Link to={`/edit/${stuff._id}`}>Edit</Link>
     </td>
@@ -20,6 +22,8 @@ StuffItem.propTypes = {
     name: PropTypes.string,
     quantity: PropTypes.number,
     condition: PropTypes.string,
+    category: PropTypes.string,
+    description: PropTypes.string,
     _id: PropTypes.string,
   }).isRequired,
 };

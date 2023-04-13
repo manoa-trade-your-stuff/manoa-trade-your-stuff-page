@@ -20,8 +20,15 @@
       "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQil_A9l5arpAJ3-RB-l69EeKO-YjtOjZKxgQ&usqp=CAU",
       "description": "Admin account.",
       "owner": "admin@foo.com"
+    },
+    {
+      "firstName": "Joel", "lastName": "Vanta", "studentId": 1010101, "email": "vantajc@hawaii.edu", "phone": 10101010, "position": "Student",
+      "image": "https://assets.skool.com/f/d0f3e1ce75b24aee9d22f1c925f2c78b/805074bdb23d4a1eb7395d768f8989df6ac30e5f48bb4f0a96dacf90b67e3569",
+      "description": "Admin account.",
+      "owner": "vantajc@hawaii.edu"
     }
   ],
+
   "defaultData": [
     { "name": "Basket", "quantity": 3, "owner": "john@foo.com", "condition": "excellent" },
     { "name": "Bicycle", "quantity": 2, "owner": "john@foo.com", "condition": "poor" },

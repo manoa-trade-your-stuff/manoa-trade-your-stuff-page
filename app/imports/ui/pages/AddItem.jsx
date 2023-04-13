@@ -33,7 +33,7 @@ const AddStuff = () => {
     const { name, quantity, condition, category, description } = data;
     const owner = Meteor.user().username;
     Stuffs.collection.insert(
-      { name, quantity, condition, owner },
+      { name, quantity, condition, category, description, owner },
       (error) => {
         if (error) {
           swal('Error', error.message, 'error');

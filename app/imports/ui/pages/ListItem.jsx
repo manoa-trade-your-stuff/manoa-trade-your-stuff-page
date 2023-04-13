@@ -36,6 +36,8 @@ const ListItem = () => {
               <th>Name</th>
               <th>Quantity</th>
               <th>Condition</th>
+              <th>Category</th>
+              <th>Description</th>
               <th>Edit</th>
             </tr>
             </thead>
