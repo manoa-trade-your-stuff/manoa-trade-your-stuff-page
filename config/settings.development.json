@@ -15,9 +15,9 @@
     "owner": "john@foo.com"
   },
     {
-      "firstName": "Admin", "lastName": "1", "studentId": 11111111, "email": "admin@foo.com", "phone": 8081111111, "position": "Student",
+      "firstName": "Admin", "lastName": "1", "studentId": 1010101, "email": "admin@foo.com", "phone": 10101010, "position": "Student",
       "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQil_A9l5arpAJ3-RB-l69EeKO-YjtOjZKxgQ&usqp=CAU",
-      "description": "This is an admin account.",
+      "description": "Admin account.",
       "owner": "admin@foo.com"
     }
   ],

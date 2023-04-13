@@ -7,7 +7,7 @@ import Profile from '../components/Profile';
 import { Profiles } from '../../api/profile/Profiles';
 
 /* Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
-const ListProfiles = () => {
+const ListProfile = () => {
   // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
   const { ready, profiles } = useTracker(() => {
     // Note that this subscription will get cleaned up
@@ -41,4 +41,4 @@ const ListProfiles = () => {
   ) : <LoadingSpinner />);
 };
 
-export default ListProfiles;
+export default ListProfile;

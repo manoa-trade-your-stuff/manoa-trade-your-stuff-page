@@ -15,7 +15,7 @@ import NotAuthorized from '../pages/NotAuthorized';
 import LoadingSpinner from '../components/LoadingSpinner';
 
 /** Profile */
-import ListProfiles from '../pages/ListProfiles';
+import ListProfile from '../pages/ListProfile';
 import ListProfilesAdmin from '../pages/ListProfilesAdmin';
 import AddProfile from '../pages/AddProfile';
 import EditProfile from '../pages/EditProfile';
@@ -51,7 +51,7 @@ const App = () => {
           <Route path="/notauthorized" element={<NotAuthorized />} />
           <Route path="*" element={<NotFound />} />
 
-          <Route path="/listProfile" element={<ProtectedRoute><ListProfiles /></ProtectedRoute>} />
+          <Route path="/listProfile" element={<ProtectedRoute><ListProfile /></ProtectedRoute>} />
           <Route path="/addProfile" element={<ProtectedRoute><AddProfile /></ProtectedRoute>} />
           <Route path="/editProfile/:_id" element={<ProtectedRoute><EditProfile /></ProtectedRoute>} />
           <Route path="/admin" element={<AdminProtectedRoute ready={ready}><ListProfilesAdmin /></AdminProtectedRoute>} />
