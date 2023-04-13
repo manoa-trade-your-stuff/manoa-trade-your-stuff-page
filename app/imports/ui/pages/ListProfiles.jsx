@@ -30,7 +30,7 @@ const ListProfiles = () => {
       <Row className="justify-content-center">
         <Col>
           <Col className="text-center">
-            <h2>List Profiles</h2>
+            <h2>Profile</h2>
           </Col>
           <Row xs={1} md={2} lg={3} className="g-4">
             {profiles.map((profile) => (<Col key={profile._id}><Profile profile={profile} /> </Col>))}
