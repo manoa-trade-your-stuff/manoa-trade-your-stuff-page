@@ -34,7 +34,7 @@ const AddProfile = () => {
         if (error) {
           swal('Error', error.message, 'error');
         } else {
-          swal('Success', 'Item added successfully', 'success');
+          swal('Success', 'Profile added successfully', 'success');
           formRef.reset();
         }
       },
