@@ -52,3 +52,10 @@ body .navbar {
 footer, footer a {
   color: var(--matr-navbar-text-color);
 }
+
+#buttonSpace {
+  padding: 10px 25px;
+  color: white;
+  cursor: pointer;
+  margin: 10px 0px;
+}
