@@ -12,7 +12,7 @@
   "defaultProfiles": [{
     "firstName": "Philip", "lastName": "Johnson", "studentId": 12345678, "email": "john@foo.com", "phone": 80812345678, "position": "Student",
     "image": "https://github.com/philipmjohnson.png",
-    "description": "I am a Professor of Information and Computer Sciences at the University of Hawaii, Director of the Collaborative Software Development Laboratory, and the CEO of OpenPowerQuality.com.",
+    "description": "I am a Professor of Information and Computer Sciencmes at the University of Hawaii, Director of the Collaborative Software Development Laboratory, and the CEO of OpenPowerQuality.com.",
     "owner": "john@foo.com"
   },
     {
