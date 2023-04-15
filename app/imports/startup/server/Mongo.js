@@ -30,9 +30,14 @@ if (Profiles.collection.find().count() === 0) {
   }
 }
 
+const addComplaint = (complaint) => {
+  console.log(`Adding: ${complaint.lastName} (${complaint.owner})`);
+  Complaints.collection.insert(complaint);
+};
+
 if (Complaints.collection.find().count() === 0) {
-  if (Meteor.settings.defaultProfiles) {
-    console.log('Creating default profiles.');
-    Meteor.settings.defaultProfiles.forEach(profile => addProfile(profile));
+  if (Meteor.settings.defaultComplaints) {
+    console.log('Creating default complaints.');
+    Meteor.settings.defaultComplaints.forEach(complaint => addComplaint(complaint));
   }
 }
