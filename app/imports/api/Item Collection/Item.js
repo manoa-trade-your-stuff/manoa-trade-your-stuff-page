@@ -4,10 +4,10 @@ import SimpleSchema from 'simpl-schema';
 /**
  * The StuffsCollection. It encapsulates state and variable values for stuff.
  */
-class StuffsCollection {
+class ItemsCollection {
   constructor() {
     // The name of this collection.
-    this.name = 'StuffsCollection';
+    this.name = 'ItemsCollection';
     // Define the Mongo collection.
     this.collection = new Mongo.Collection(this.name);
     // Define the structure of each document in the collection.
@@ -15,19 +15,12 @@ class StuffsCollection {
       name: String,
       quantity: Number,
       owner: String,
-      category: {
-        type: String,
-        allowedValues: ['Choose a Category', 'Books', 'Clothings', 'Electronics', 'Others'],
-        defaultValue: 'Choose a Category',
-      },
+      category: String,
+      description: String,
       condition: {
         type: String,
         allowedValues: ['excellent', 'good', 'fair', 'poor'],
         defaultValue: 'good',
-      },
-      description: {
-        type: String,
-        defaultValue: 'Describe your item here',
       },
     });
     // Attach the schema to the collection, so all attempts to insert a document are checked against schema.

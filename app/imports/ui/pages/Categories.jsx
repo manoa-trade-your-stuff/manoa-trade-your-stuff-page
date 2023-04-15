@@ -7,7 +7,6 @@ const Categories = () => (
     <Col xs={5}>
       <Col className="text-center" id="color"><h2>Category</h2></Col>
       <Col className="d-flex justify-content-center p-5 col px-md-5">
-        <Link to="http://localhost:3000/CategoriesBook"><Button id="buttonSpace">Books</Button></Link>
         <Button id="buttonSpace">Clothings</Button>
         <Button id="buttonSpace">Electronics</Button>
         <Button id="buttonSpace">Households goods</Button>

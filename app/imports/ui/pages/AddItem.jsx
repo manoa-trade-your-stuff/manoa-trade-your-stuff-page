@@ -18,9 +18,12 @@ const formSchema = new SimpleSchema({
   },
   category: {
     type: String,
-    allowedValues: ['Books', 'Clothings', 'Electronics'],
+    allowedValues: ['Books', 'Clothings', 'Electronics', 'Others'],
   },
-  description: String,
+  description: {
+    type: String,
+    defaultValue: 'Describe your item',
+  },
 });
 
 const bridge = new SimpleSchema2Bridge(formSchema);
