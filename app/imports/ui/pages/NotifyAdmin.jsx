@@ -15,7 +15,6 @@ function NotifyAdmin() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Do something with the user's input here (e.g. store it in a database, send an email notification, etc.)
   };
 
   return (
