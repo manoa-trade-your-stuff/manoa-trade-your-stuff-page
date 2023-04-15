@@ -30,6 +30,8 @@ import ListStuffAdmin from '../pages/ListStuffAdmin';
 /** Item */
 import ListItem from '../pages/ListItem';
 import AddItem from '../pages/AddItem';
+import Categories from '../pages/Categories';
+import CategoriesBook from '../pages/CategoriesBook';
 
 import ListCategories from '../pages/ListCategories';
 import AddComplaints from '../pages/NotifyAdmin';
@@ -64,7 +66,8 @@ const App = () => {
 
           <Route path="/addItem" element={<ProtectedRoute><AddItem /></ProtectedRoute>} />
           <Route path="/listItem" element={<ProtectedRoute><ListItem /></ProtectedRoute>} />
-          <Route path="/categories" element={<ProtectedRoute><ListCategories /></ProtectedRoute>} />
+          <Route path="/categories" element={<ProtectedRoute><Categories /></ProtectedRoute>} />
+          <Route path="/categoriesBook" element={<ProtectedRoute><CategoriesBook /></ProtectedRoute>} />
 
           <Route path="/edit/:_id" element={<ProtectedRoute><EditStuff /></ProtectedRoute>} />
           <Route path="/admin" element={<AdminProtectedRoute ready={ready}><ListStuffAdmin /></AdminProtectedRoute>} />
