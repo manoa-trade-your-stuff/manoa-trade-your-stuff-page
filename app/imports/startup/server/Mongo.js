@@ -1,6 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { Stuffs } from '../../api/stuff/Stuff.js';
 import { Profiles } from '../../api/profile/Profiles';
+import { Complaints } from '../../api/Complaints/Complaints';
 
 /* eslint-disable no-console */
 
@@ -23,6 +24,13 @@ const addProfile = (profile) => {
 };
 
 if (Profiles.collection.find().count() === 0) {
+  if (Meteor.settings.defaultProfiles) {
+    console.log('Creating default profiles.');
+    Meteor.settings.defaultProfiles.forEach(profile => addProfile(profile));
+  }
+}
+
+if (Complaints.collection.find().count() === 0) {
   if (Meteor.settings.defaultProfiles) {
     console.log('Creating default profiles.');
     Meteor.settings.defaultProfiles.forEach(profile => addProfile(profile));

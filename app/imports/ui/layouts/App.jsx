@@ -32,6 +32,7 @@ import ListItem from '../pages/ListItem';
 import AddItem from '../pages/AddItem';
 
 import ListCategories from '../pages/ListCategories';
+import AddComplaints from '../pages/NotifyAdmin';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 const App = () => {
@@ -57,6 +58,7 @@ const App = () => {
 
           <Route path="/listProfile" element={<ProtectedRoute><ListProfile /></ProtectedRoute>} />
           <Route path="/addProfile" element={<ProtectedRoute><AddProfile /></ProtectedRoute>} />
+          <Route path="/complaints" element={<ProtectedRoute><AddComplaints /></ProtectedRoute>} />
           <Route path="/editProfile/:_id" element={<ProtectedRoute><EditProfile /></ProtectedRoute>} />
           <Route path="/admin" element={<AdminProtectedRoute ready={ready}><ListProfilesAdmin /></AdminProtectedRoute>} />
 

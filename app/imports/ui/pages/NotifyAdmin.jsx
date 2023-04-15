@@ -1,54 +1,63 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Card, Col, Container, Row } from 'react-bootstrap';
+import { AutoForm, ErrorsField, LongTextField, SubmitField, TextField } from 'uniforms-bootstrap5';
+import swal from 'sweetalert';
+import { Meteor } from 'meteor/meteor';
+import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
+import SimpleSchema from 'simpl-schema';
+import { Complaints } from '../../api/Complaints/Complaints';
 
-function NotifyAdmin() {
-  const [userInvolved, setUserInvolved] = useState('');
-  const [incidentDescription, setIncidentDescription] = useState('');
+// Create a schema to specify the structure of the data to appear in the form.
+const formSchema = new SimpleSchema({
+  firstName: String,
+  lastName: String,
+  incident: String,
+});
 
-  const handleUserInvolvedChange = (event) => {
-    setUserInvolved(event.target.value);
+const bridge = new SimpleSchema2Bridge(formSchema);
+
+/* Renders the AddStuff page for adding a document. */
+const AddComplaints = () => {
+
+  // On submit, insert the data.
+  const submit = (data, formRef) => {
+    const { firstName, lastName, incident } = data;
+    const owner = Meteor.user().username;
+    Complaints.collection.insert(
+      { firstName, lastName, incident, owner },
+      (error) => {
+        if (error) {
+          swal('Error', error.message, 'error');
+        } else {
+          swal('Success', 'Item added successfully', 'success');
+          formRef.reset();
+        }
+      },
+    );
   };
 
-  const handleIncidentDescriptionChange = (event) => {
-    setIncidentDescription(event.target.value);
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-  };
-
+  // Render the form. Use Uniforms: https://github.com/vazco/uniforms
+  let fRef = null;
   return (
-    <Container>
-      <Row>
-        <Col md={{ span: 6, offset: 3 }}>
-          <Card>
-            <Card.Body>
-              <Card.Title>Incident Reporting</Card.Title>
-              <form onSubmit={handleSubmit}>
-                <label htmlFor="user-involved">User Involved:</label>
-                <input
-                  type="text"
-                  id="user-involved"
-                  value={userInvolved}
-                  onChange={handleUserInvolvedChange}
-                />
-
-                <label htmlFor="incident-description">Describe Incident in Detail:</label>
-                <input
-                  type="text"
-                  id="incident-description"
-                  value={incidentDescription}
-                  onChange={handleIncidentDescriptionChange}
-                />
-
-                <button type="submit">Submit</button>
-              </form>
-            </Card.Body>
-          </Card>
+    <Container className="py-3">
+      <Row className="justify-content-center">
+        <Col xs={5}>
+          <Col className="text-center"><h2>File a Complaint</h2></Col>
+          <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => submit(data, fRef)}>
+            <Card>
+              <Card.Body>
+                <TextField name="firstName" />
+                <TextField name="lastName" />
+                <LongTextField name="incident" />
+                <SubmitField value="Submit" />
+                <ErrorsField />
+              </Card.Body>
+            </Card>
+          </AutoForm>
         </Col>
       </Row>
     </Container>
   );
-}
+};
 
-export default NotifyAdmin;
+export default AddComplaints;
