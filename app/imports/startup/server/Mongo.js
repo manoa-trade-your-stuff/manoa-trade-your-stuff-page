@@ -28,11 +28,16 @@ if (Profiles.collection.find().count() === 0) {
     console.log('Creating default profiles.');
     Meteor.settings.defaultProfiles.forEach(profile => addProfile(profile));
   }
-}
+};
+
+const addComplaints = (complaints) => {
+  console.log(`  Adding: ${complaints.name} (${complaints.owner})`);
+  Complaints.collection.insert(complaints);
+};
 
 if (Complaints.collection.find().count() === 0) {
-  if (Meteor.settings.defaultProfiles) {
-    console.log('Creating default profiles.');
-    Meteor.settings.defaultProfiles.forEach(profile => addProfile(profile));
+  if (Meteor.settings.defaultComplaints) {
+    console.log('Creating default complaints.');
+    Meteor.settings.defaultProfiles.forEach(complaints => addComplaints(complaints));
   }
 }
