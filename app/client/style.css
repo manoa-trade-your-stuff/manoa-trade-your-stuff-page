@@ -52,3 +52,17 @@ body .navbar {
 footer, footer a {
   color: var(--matr-navbar-text-color);
 }
+
+#color {
+  color: white;
+}
+
+#buttonSpace {
+  background-color: green;
+  color: white;
+  padding: 5px 15px;
+  border-radius: 5px;
+  margin: 10px 10px;
+  cursor: pointer;
+  box-shadow: 0px 2px 2px lightgray;
+}
