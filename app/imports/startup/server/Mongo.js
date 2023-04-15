@@ -28,7 +28,12 @@ if (Profiles.collection.find().count() === 0) {
     console.log('Creating default profiles.');
     Meteor.settings.defaultProfiles.forEach(profile => addProfile(profile));
   }
-}
+};
+
+const addComplaints = (complaints) => {
+  console.log(`  Adding: ${complaints.name} (${complaints.owner})`);
+  Complaints.collection.insert(complaints);
+};
 
 const addComplaint = (complaint) => {
   console.log(`Adding: ${complaint.lastName} (${complaint.owner})`);

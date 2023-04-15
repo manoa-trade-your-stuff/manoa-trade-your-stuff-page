@@ -70,7 +70,7 @@ const App = () => {
           <Route path="/categoriesBook" element={<ProtectedRoute><CategoriesBook /></ProtectedRoute>} />
 
           <Route path="/edit/:_id" element={<ProtectedRoute><EditStuff /></ProtectedRoute>} />
-          <Route path="/admin" element={<AdminProtectedRoute ready={ready}><ListStuffAdmin /></AdminProtectedRoute>} />
+          <Route path="/listprofileadmin" element={<AdminProtectedRoute ready={ready}><ListProfilesAdmin /></AdminProtectedRoute>} />
         </Routes>
         <Footer />
       </div>
