@@ -1,6 +1,11 @@
 import { Meteor } from 'meteor/meteor';
 import { Stuffs } from '../../api/stuff/Stuff.js';
 import { Profiles } from '../../api/profile/Profiles';
+<<<<<<< Updated upstream
+=======
+import { Complaints } from '../../api/Complaints/Complaints';
+import { Offer} from '../../api/Offer/Offer';
+>>>>>>> Stashed changes
 
 /* eslint-disable no-console */
 
@@ -28,3 +33,19 @@ if (Profiles.collection.find().count() === 0) {
     Meteor.settings.defaultProfiles.forEach(profile => addProfile(profile));
   }
 }
+<<<<<<< Updated upstream
+=======
+
+if (Complaints.collection.find().count() === 0) {
+  if (Meteor.settings.defaultProfiles) {
+    console.log('Creating default profiles.');
+    Meteor.settings.defaultProfiles.forEach(profile => addProfile(profile));
+  }
+}
+if (Offer.collection.find().count() === 0) {
+  if (Meteor.settings.defaultProfiles) {
+    console.log('Creating default profiles.');
+    Meteor.settings.defaultProfiles.forEach(profile => addProfile(profile));
+  }
+}
+>>>>>>> Stashed changes

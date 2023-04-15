@@ -13,7 +13,6 @@ import NavBar from '../components/NavBar';
 import SignIn from '../pages/SignIn';
 import NotAuthorized from '../pages/NotAuthorized';
 import LoadingSpinner from '../components/LoadingSpinner';
-import NotifyAdmin from '../pages/NotifyAdmin';
 
 /** Profile */
 import ListProfile from '../pages/ListProfile';
@@ -30,6 +29,12 @@ import ListStuffAdmin from '../pages/ListStuffAdmin';
 /** Item */
 import ListItem from '../pages/ListItem';
 import AddItem from '../pages/AddItem';
+<<<<<<< Updated upstream
+=======
+import AddComplaints from '../pages/NotifyAdmin';
+import AddOffer from '../pages/MakeOffer';
+import ListCategories from '../pages/ListCategories';
+>>>>>>> Stashed changes
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 const App = () => {
@@ -48,21 +53,26 @@ const App = () => {
           <Route path="/signin" element={<SignIn />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/signout" element={<SignOut />} />
-          <Route path="/notify-admin" element={<NotifyAdmin />} />
+          <Route path="/notify-admin" element={<AddComplaints />} />
           <Route path="/home" element={<ProtectedRoute><Landing /></ProtectedRoute>} />
           <Route path="/notauthorized" element={<NotAuthorized />} />
           <Route path="*" element={<NotFound />} />
 
           <Route path="/listProfile" element={<ProtectedRoute><ListProfile /></ProtectedRoute>} />
           <Route path="/addProfile" element={<ProtectedRoute><AddProfile /></ProtectedRoute>} />
+<<<<<<< Updated upstream
+=======
+          <Route path="/complaints" element={<ProtectedRoute><AddComplaints /></ProtectedRoute>} />
+          <Route path="/offer" element={<ProtectedRoute><AddOffer /></ProtectedRoute>} />
+>>>>>>> Stashed changes
           <Route path="/editProfile/:_id" element={<ProtectedRoute><EditProfile /></ProtectedRoute>} />
-          <Route path="/admin" element={<AdminProtectedRoute ready={ready}><ListProfilesAdmin /></AdminProtectedRoute>} />
+          <Route path="/admin/profiles" element={<AdminProtectedRoute ready={ready}><ListProfilesAdmin /></AdminProtectedRoute>} />
 
           <Route path="/addItem" element={<ProtectedRoute><AddItem /></ProtectedRoute>} />
           <Route path="/listItem" element={<ProtectedRoute><ListItem /></ProtectedRoute>} />
 
           <Route path="/edit/:_id" element={<ProtectedRoute><EditStuff /></ProtectedRoute>} />
-          <Route path="/admin" element={<AdminProtectedRoute ready={ready}><ListStuffAdmin /></AdminProtectedRoute>} />
+          <Route path="/admin/stuff" element={<AdminProtectedRoute ready={ready}><ListStuffAdmin /></AdminProtectedRoute>} />
         </Routes>
         <Footer />
       </div>
