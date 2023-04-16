@@ -29,13 +29,15 @@ const NavBar = () => {
             {currentUser ? ([
               <Nav.Link id="list-stuff-nav" as={NavLink} to="/listProfile" key="listProfile">Profile</Nav.Link>,
               /** Item */
-              <Nav.Link id="add-stuff-nav" as={NavLink} to="/addItem" key="addItem">Add an Item</Nav.Link>,
-              <Nav.Link id="list-stuff-nav" as={NavLink} to="/listItem" key="listItem">Items List</Nav.Link>,
+              <Nav.Link id="add-stuff-nav" as={NavLink} to="/addItem" key="addItem">Add Item</Nav.Link>,
+              <Nav.Link id="list-stuff-nav" as={NavLink} to="/listItem" key="listItem">Item Lists</Nav.Link>,
+              /** Category */
               <Nav.Link id="categories-nav" as={NavLink} to="/categories" key="categories">Category</Nav.Link>,
-              <Nav.Link id="notify-admin-nav" as={NavLink} to="/complaints" key="complaint">File A Complaint</Nav.Link>,
+              /** Complaint */
+              <Nav.Link id="notify-admin-nav" as={NavLink} to="/complaints" key="complaint">Report</Nav.Link>,
             ]) : ''}
             {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
-              <Nav.Link id="list-stuff-admin-nav" as={NavLink} to="/listprofileadmin" key="admin">List of Profiles</Nav.Link>
+              <Nav.Link id="list-stuff-admin-nav" as={NavLink} to="/listprofileadmin" key="admin">Profile Lists</Nav.Link>
             ) : ''}
           </Nav>
           <Nav className="justify-content-end">

@@ -2,12 +2,12 @@ import { Mongo } from 'meteor/mongo';
 import SimpleSchema from 'simpl-schema';
 
 /**
- * The StuffsCollection. It encapsulates state and variable values for stuff.
+ * The ItemsCollection. It encapsulates state and variable values for item.
  */
-class StuffsCollection {
+class ItemsCollection {
   constructor() {
     // The name of this collection.
-    this.name = 'StuffsCollection';
+    this.name = 'ItemsCollection';
     // Define the Mongo collection.
     this.collection = new Mongo.Collection(this.name);
     // Define the structure of each document in the collection.
@@ -15,19 +15,19 @@ class StuffsCollection {
       name: String,
       quantity: Number,
       owner: String,
+      description: {
+        type: String,
+        defaultValue: 'Describe your item here',
+      },
       category: {
         type: String,
-        allowedValues: ['Choose a Category', 'Books', 'Clothings', 'Electronics', 'Others'],
+        allowedValues: ['Choose a Category', 'Books', 'Clothing', 'Electronics', 'Others'],
         defaultValue: 'Choose a Category',
       },
       condition: {
         type: String,
         allowedValues: ['excellent', 'good', 'fair', 'poor'],
         defaultValue: 'good',
-      },
-      description: {
-        type: String,
-        defaultValue: 'Describe your item here',
       },
     });
     // Attach the schema to the collection, so all attempts to insert a document are checked against schema.
@@ -39,7 +39,7 @@ class StuffsCollection {
 }
 
 /**
- * The singleton instance of the StuffsCollection.
- * @type {StuffsCollection}
+ * The singleton instance of the ItemsCollection.
+ * @type {ItemsCollection}
  */
-export const Stuffs = new StuffsCollection();
+export const Items = new ItemsCollection();

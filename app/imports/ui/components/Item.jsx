@@ -2,23 +2,23 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-/** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
-const StuffItem = ({ stuff }) => (
+/** Renders a single row in the List Item table. See pages/ListItem.jsx. */
+const Item = ({ item }) => (
   <tr>
-    <td>{stuff.name}</td>
-    <td>{stuff.quantity}</td>
-    <td>{stuff.condition}</td>
-    <td>{stuff.category}</td>
-    <td>{stuff.description}</td>
+    <td>{item.name}</td>
+    <td>{item.quantity}</td>
+    <td>{item.condition}</td>
+    <td>{item.category}</td>
+    <td>{item.description}</td>
     <td>
-      <Link to={`/edit/${stuff._id}`}>Edit</Link>
+      <Link to={`/editItem/${item._id}`}>Edit</Link>
     </td>
   </tr>
 );
 
 // Require a document to be passed to this component.
-StuffItem.propTypes = {
-  stuff: PropTypes.shape({
+Item.propTypes = {
+  item: PropTypes.shape({
     name: PropTypes.string,
     quantity: PropTypes.number,
     condition: PropTypes.string,
@@ -28,4 +28,4 @@ StuffItem.propTypes = {
   }).isRequired,
 };
 
-export default StuffItem;
+export default Item;

@@ -13,28 +13,28 @@ import NavBar from '../components/NavBar';
 import SignIn from '../pages/SignIn';
 import NotAuthorized from '../pages/NotAuthorized';
 import LoadingSpinner from '../components/LoadingSpinner';
-import NotifyAdmin from '../pages/NotifyAdmin';
-
 /** Profile */
 import ListProfile from '../pages/ListProfile';
 import ListProfilesAdmin from '../pages/ListProfilesAdmin';
 import AddProfile from '../pages/AddProfile';
 import EditProfile from '../pages/EditProfile';
 
-/** Stuff */
-// import ListStuff from '../pages/ListStuff';
-// import AddStuff from '../pages/AddStuff';
-import EditStuff from '../pages/EditStuff';
-import ListStuffAdmin from '../pages/ListStuffAdmin';
-
 /** Item */
 import ListItem from '../pages/ListItem';
 import AddItem from '../pages/AddItem';
+import ListItemAdmin from '../pages/ListItemAdmin';
+import EditItem from '../pages/EditItem';
+
+/** Category */
 import Categories from '../pages/Categories';
 import CategoriesBook from '../pages/CategoriesBook';
-
 import ListCategories from '../pages/ListCategories';
+
+/** Complaint */
 import AddComplaints from '../pages/NotifyAdmin';
+
+/** Notify Admin */
+import NotifyAdmin from '../pages/NotifyAdmin';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 const App = () => {
@@ -53,24 +53,26 @@ const App = () => {
           <Route path="/signin" element={<SignIn />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/signout" element={<SignOut />} />
-          <Route path="/notify-admin" element={<NotifyAdmin />} />
           <Route path="/home" element={<ProtectedRoute><Landing /></ProtectedRoute>} />
           <Route path="/notauthorized" element={<NotAuthorized />} />
           <Route path="*" element={<NotFound />} />
 
           <Route path="/listProfile" element={<ProtectedRoute><ListProfile /></ProtectedRoute>} />
           <Route path="/addProfile" element={<ProtectedRoute><AddProfile /></ProtectedRoute>} />
-          <Route path="/complaints" element={<ProtectedRoute><AddComplaints /></ProtectedRoute>} />
           <Route path="/editProfile/:_id" element={<ProtectedRoute><EditProfile /></ProtectedRoute>} />
-          <Route path="/admin" element={<AdminProtectedRoute ready={ready}><ListProfilesAdmin /></AdminProtectedRoute>} />
+          <Route path="/listProfileAdmin" element={<AdminProtectedRoute ready={ready}><ListProfilesAdmin /></AdminProtectedRoute>} />
 
           <Route path="/addItem" element={<ProtectedRoute><AddItem /></ProtectedRoute>} />
           <Route path="/listItem" element={<ProtectedRoute><ListItem /></ProtectedRoute>} />
+          <Route path="/editItem/:_id" element={<ProtectedRoute><EditItem /></ProtectedRoute>} />
+          <Route path="/listItemAdmin" element={<AdminProtectedRoute ready={ready}><ListItemAdmin /></AdminProtectedRoute>} />
+
+          <Route path="/complaints" element={<ProtectedRoute><AddComplaints /></ProtectedRoute>} />
+
           <Route path="/categories" element={<ProtectedRoute><Categories /></ProtectedRoute>} />
           <Route path="/categoriesBook" element={<ProtectedRoute><CategoriesBook /></ProtectedRoute>} />
 
-          <Route path="/edit/:_id" element={<ProtectedRoute><EditStuff /></ProtectedRoute>} />
-          <Route path="/listprofileadmin" element={<AdminProtectedRoute ready={ready}><ListProfilesAdmin /></AdminProtectedRoute>} />
+          <Route path="/notify-admin" element={<NotifyAdmin />} />
         </Routes>
         <Footer />
       </div>

@@ -1,5 +1,5 @@
 import { Meteor } from 'meteor/meteor';
-import { Stuffs } from '../../api/stuff/Stuff.js';
+import { Items } from '../../api/item/Item.js';
 import { Profiles } from '../../api/profile/Profiles';
 import { Complaints } from '../../api/Complaints/Complaints';
 
@@ -8,16 +8,17 @@ import { Complaints } from '../../api/Complaints/Complaints';
 // Initialize the database with a default data document.
 const addData = (data) => {
   console.log(`  Adding: ${data.name} (${data.owner})`);
-  Stuffs.collection.insert(data);
+  Items.collection.insert(data);
 };
 
-// Initialize the StuffsCollection if empty.
-if (Stuffs.collection.find().count() === 0) {
+// Initialize the ItemsCollection if empty.
+if (Items.collection.find().count() === 0) {
   if (Meteor.settings.defaultData) {
-    console.log('Creating default data.');
+    console.log('Creating default Items.');
     Meteor.settings.defaultData.forEach(data => addData(data));
   }
 }
+// ProfileCollection
 const addProfile = (profile) => {
   console.log(`Adding: ${profile.lastName} (${profile.owner})`);
   Profiles.collection.insert(profile);
@@ -30,6 +31,7 @@ if (Profiles.collection.find().count() === 0) {
   }
 }
 
+// ComplaintCollections
 const addComplaint = (complaint) => {
   console.log(`Adding: ${complaint.lastName} (${complaint.owner})`);
   Complaints.collection.insert(complaint);

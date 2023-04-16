@@ -5,7 +5,7 @@ import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import SimpleSchema from 'simpl-schema';
-import { Stuffs } from '../../api/stuff/Stuff';
+import { Items } from '../../api/item/Item';
 
 // Create a schema to specify the structure of the data to appear in the form.
 const formSchema = new SimpleSchema({
@@ -28,14 +28,14 @@ const formSchema = new SimpleSchema({
 
 const bridge = new SimpleSchema2Bridge(formSchema);
 
-/* Renders the AddStuff page for adding a document. */
-const AddStuff = () => {
+/* Renders the AddItem page for adding a document. */
+const AddItem = () => {
 
   // On submit, insert the data.
   const submit = (data, formRef) => {
     const { name, quantity, condition, category, description } = data;
     const owner = Meteor.user().username;
-    Stuffs.collection.insert(
+    Items.collection.insert(
       { name, quantity, condition, category, description, owner },
       (error) => {
         if (error) {
@@ -74,4 +74,4 @@ const AddStuff = () => {
   );
 };
 
-export default AddStuff;
+export default AddItem;

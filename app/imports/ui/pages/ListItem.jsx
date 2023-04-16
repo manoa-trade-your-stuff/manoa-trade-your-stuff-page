@@ -2,24 +2,24 @@ import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { Col, Container, Row, Table } from 'react-bootstrap';
 import { useTracker } from 'meteor/react-meteor-data';
-import { Stuffs } from '../../api/stuff/Stuff';
-import StuffItem from '../components/StuffItem';
+import { Items } from '../../api/item/Item';
+import Item from '../components/Item';
 import LoadingSpinner from '../components/LoadingSpinner';
 
-/* Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
+/* Renders a table containing all of the Item documents. Use <ItemItem> to render each row. */
 const ListItem = () => {
   // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
-  const { ready, stuffs } = useTracker(() => {
+  const { ready, items } = useTracker(() => {
     // Note that this subscription will get cleaned up
     // when your component is unmounted or deps change.
-    // Get access to Stuff documents.
-    const subscription = Meteor.subscribe(Stuffs.userPublicationName);
+    // Get access to Item documents.
+    const subscription = Meteor.subscribe(Items.userPublicationName);
     // Determine if the subscription is ready
     const rdy = subscription.ready();
-    // Get the Stuff documents
-    const stuffItems = Stuffs.collection.find({}).fetch();
+    // Get the Item documents
+    const items = Items.collection.find({}).fetch();
     return {
-      stuffs: stuffItems,
+      items: items,
       ready: rdy,
     };
   }, []);
@@ -32,17 +32,17 @@ const ListItem = () => {
           </Col>
           <Table striped bordered hover>
             <thead>
-            <tr>
-              <th>Name</th>
-              <th>Quantity</th>
-              <th>Condition</th>
-              <th>Category</th>
-              <th>Description</th>
-              <th>Edit</th>
-            </tr>
+              <tr>
+                <th>Name</th>
+                <th>Quantity</th>
+                <th>Condition</th>
+                <th>Category</th>
+                <th>Description</th>
+                <th>Edit</th>
+              </tr>
             </thead>
             <tbody>
-            {stuffs.map((stuff) => <StuffItem key={stuff._id} stuff={stuff} />)}
+              {items.map((item) => <Item key={item._id} item={item} />)}
             </tbody>
           </Table>
         </Col>

@@ -1,21 +1,21 @@
 import { Meteor } from 'meteor/meteor';
 import { Roles } from 'meteor/alanning:roles';
-import { Stuffs } from '../../api/stuff/Stuff';
+import { Items } from '../../api/item/Item';
 import { Profiles } from '../../api/profile/Profiles';
 import { Complaints } from '../../api/Complaints/Complaints';
 
-// Stuff
-Meteor.publish(Stuffs.userPublicationName, function () {
+// Item
+Meteor.publish(Items.userPublicationName, function () {
   if (this.userId) {
     const username = Meteor.users.findOne(this.userId).username;
-    return Stuffs.collection.find({ owner: username });
+    return Items.collection.find({ owner: username });
   }
   return this.ready();
 });
 
-Meteor.publish(Stuffs.adminPublicationName, function () {
+Meteor.publish(Items.adminPublicationName, function () {
   if (this.userId && Roles.userIsInRole(this.userId, 'admin')) {
-    return Stuffs.collection.find();
+    return Items.collection.find();
   }
   return this.ready();
 });
