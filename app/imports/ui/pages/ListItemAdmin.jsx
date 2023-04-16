@@ -34,8 +34,8 @@ const ListItemAdmin = () => {
                 <th>Condition</th>
                 <th>Category</th>
                 <th>Description</th>
-                <th>Edit</th>
                 <th>Owner</th>
+                <th>Edit</th>
               </tr>
             </thead>
             <tbody>
