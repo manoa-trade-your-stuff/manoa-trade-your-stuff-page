@@ -22,13 +22,11 @@ class ItemsCollection {
       },
       category: {
         type: String,
-        allowedValues: ['Choose a Category', 'Books', 'Clothing', 'Electronics', 'Others'],
-        defaultValue: 'Choose a Category',
+        allowedValues: ['Books', 'Clothing', 'Electronics', 'Others'],
       },
       condition: {
         type: String,
-        allowedValues: ['excellent', 'good', 'fair', 'poor'],
-        defaultValue: 'good',
+        allowedValues: ['Excellent', 'Good', 'Fair', 'Poor'],
       },
     });
     // Attach the schema to the collection, so all attempts to insert a document are checked against schema.

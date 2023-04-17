@@ -14,12 +14,13 @@ const formSchema = new SimpleSchema({
   image: String,
   condition: {
     type: String,
-    allowedValues: ['excellent', 'good', 'fair', 'poor'],
-    defaultValue: 'good',
+    allowedValues: ['Excellent', 'Good', 'Fair', 'Poor'],
+    defaultValue: 'Good',
   },
   category: {
     type: String,
-    allowedValues: ['Books', 'Clothings', 'Electronics', 'Others'],
+    allowedValues: ['Books', 'Clothing', 'Electronics', 'Others'],
+    defaultValue: 'Others',
   },
   description: {
     type: String,
