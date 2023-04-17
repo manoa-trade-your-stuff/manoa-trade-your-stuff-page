@@ -28,9 +28,9 @@ const ListItem = () => {
       <Row className="justify-content-center">
         <Col md={7}>
           <Col className="text-center">
-            <h2>List an Item</h2>
+            <h2>Item List</h2>
           </Col>
-          <Table striped bordered hover>
+          <Table striped bordered hover variant="dark">
             <thead>
               <tr>
                 <th>Image</th>

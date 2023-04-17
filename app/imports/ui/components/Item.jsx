@@ -6,7 +6,7 @@ import { Image } from 'react-bootstrap';
 /** Renders a single row in the List Item table. See pages/ListItem.jsx. */
 const Item = ({ item }) => (
   <tr>
-    <Image src={item.image} width={150} />
+    <Image src={item.image} width={150} className="img-fluid" />
     <td>{item.name}</td>
     <td>{item.quantity}</td>
     <td>{item.condition}</td>
