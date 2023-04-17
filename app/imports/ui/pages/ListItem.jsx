@@ -33,6 +33,7 @@ const ListItem = () => {
           <Table striped bordered hover>
             <thead>
               <tr>
+                <th>Image</th>
                 <th>Name</th>
                 <th>Quantity</th>
                 <th>Condition</th>

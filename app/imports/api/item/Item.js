@@ -15,6 +15,7 @@ class ItemsCollection {
       name: String,
       quantity: Number,
       owner: String,
+      image: String,
       description: {
         type: String,
         defaultValue: 'Describe your item here',

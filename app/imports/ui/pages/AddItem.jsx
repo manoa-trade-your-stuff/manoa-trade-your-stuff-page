@@ -11,6 +11,7 @@ import { Items } from '../../api/item/Item';
 const formSchema = new SimpleSchema({
   name: String,
   quantity: Number,
+  image: String,
   condition: {
     type: String,
     allowedValues: ['excellent', 'good', 'fair', 'poor'],
@@ -33,10 +34,10 @@ const AddItem = () => {
 
   // On submit, insert the data.
   const submit = (data, formRef) => {
-    const { name, quantity, condition, category, description } = data;
+    const { name, quantity, condition, category, image, description } = data;
     const owner = Meteor.user().username;
     Items.collection.insert(
-      { name, quantity, condition, category, description, owner },
+      { name, quantity, condition, category, image, description, owner },
       (error) => {
         if (error) {
           swal('Error', error.message, 'error');
@@ -62,6 +63,7 @@ const AddItem = () => {
                 <NumField name="quantity" decimal={null} />
                 <SelectField name="condition" />
                 <SelectField name="category" />
+                <TextField name="image" />
                 <LongTextField name="description" />
                 <SubmitField value="Submit" />
                 <ErrorsField />
