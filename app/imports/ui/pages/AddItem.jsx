@@ -5,22 +5,20 @@ import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import SimpleSchema from 'simpl-schema';
-import { Items } from '../../api/item/Item';
+import { Stuffs } from '../../api/stuff/Stuff';
 
 // Create a schema to specify the structure of the data to appear in the form.
 const formSchema = new SimpleSchema({
   name: String,
   quantity: Number,
-  image: String,
   condition: {
     type: String,
-    allowedValues: ['Excellent', 'Good', 'Fair', 'Poor'],
-    defaultValue: 'Good',
+    allowedValues: ['excellent', 'good', 'fair', 'poor'],
+    defaultValue: 'good',
   },
   category: {
     type: String,
-    allowedValues: ['Books', 'Clothing', 'Electronics', 'Others'],
-    defaultValue: 'Others',
+    allowedValues: ['Books', 'Clothings', 'Electronics', 'Household', 'Others'],
   },
   description: {
     type: String,
@@ -30,15 +28,15 @@ const formSchema = new SimpleSchema({
 
 const bridge = new SimpleSchema2Bridge(formSchema);
 
-/* Renders the AddItem page for adding a document. */
-const AddItem = () => {
+/* Renders the AddStuff page for adding a document. */
+const AddStuff = () => {
 
   // On submit, insert the data.
   const submit = (data, formRef) => {
-    const { name, quantity, condition, category, image, description } = data;
+    const { name, quantity, condition, category, description } = data;
     const owner = Meteor.user().username;
-    Items.collection.insert(
-      { name, quantity, condition, category, image, description, owner },
+    Stuffs.collection.insert(
+      { name, quantity, condition, category, description, owner },
       (error) => {
         if (error) {
           swal('Error', error.message, 'error');
@@ -56,7 +54,7 @@ const AddItem = () => {
     <Container className="py-3">
       <Row className="justify-content-center">
         <Col xs={5}>
-          <Col className="text-center"><h2>Add Item</h2></Col>
+          <Col className="text-center"><h2>Add your Item</h2></Col>
           <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => submit(data, fRef)}>
             <Card>
               <Card.Body>
@@ -64,7 +62,6 @@ const AddItem = () => {
                 <NumField name="quantity" decimal={null} />
                 <SelectField name="condition" />
                 <SelectField name="category" />
-                <TextField name="image" />
                 <LongTextField name="description" />
                 <SubmitField value="Submit" />
                 <ErrorsField />
@@ -77,4 +74,4 @@ const AddItem = () => {
   );
 };
 
-export default AddItem;
+export default AddStuff;
