@@ -3,11 +3,11 @@ import { Meteor } from 'meteor/meteor';
 import { Col, Container, Row, Table } from 'react-bootstrap';
 import { useTracker } from 'meteor/react-meteor-data';
 import { Items } from '../../api/item/Item';
-import Item from '../components/Item';
 import LoadingSpinner from '../components/LoadingSpinner';
+import UserItem from '../components/UserItem';
 
-/* Renders a table containing all of the Item documents. Use <ItemItem> to render each row. */
-const ListItem = () => {
+/* Renders a table containing all of the Item documents. Use <UserItem> to render each row. */
+const UserListItem = () => {
   // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
   const { ready, items } = useTracker(() => {
     // Note that this subscription will get cleaned up
@@ -43,7 +43,7 @@ const ListItem = () => {
               </tr>
             </thead>
             <tbody>
-              {items.map((item) => <Item key={item._id} item={item} />)}
+              {items.map((item) => <UserItem key={item._id} item={item} />)}
             </tbody>
           </Table>
         </Col>
@@ -52,4 +52,4 @@ const ListItem = () => {
   ) : <LoadingSpinner />);
 };
 
-export default ListItem;
+export default UserListItem;

@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 import { Image } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 /** Renders a single row in the List Item table. See pages/ListItem.jsx. */
-const Item = ({ item }) => (
+const UserItem = ({ item }) => (
   <tr>
     <Image src={item.image} width={150} className="img-fluid" />
     <td>{item.name}</td>
@@ -12,11 +12,14 @@ const Item = ({ item }) => (
     <td>{item.condition}</td>
     <td>{item.category}</td>
     <td>{item.description}</td>
+    <td>
+      <Link to={`/editItem/${item._id}`}>Edit</Link>
+    </td>
   </tr>
 );
 
 // Require a document to be passed to this component.
-Item.propTypes = {
+UserItem.propTypes = {
   item: PropTypes.shape({
     name: PropTypes.string,
     quantity: PropTypes.number,
@@ -28,4 +31,4 @@ Item.propTypes = {
   }).isRequired,
 };
 
-export default Item;
+export default UserItem;

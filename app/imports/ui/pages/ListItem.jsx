@@ -39,7 +39,6 @@ const ListItem = () => {
                 <th>Condition</th>
                 <th>Category</th>
                 <th>Description</th>
-                <th>Edit</th>
               </tr>
             </thead>
             <tbody>
