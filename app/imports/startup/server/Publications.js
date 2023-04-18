@@ -20,6 +20,12 @@ Meteor.publish(Items.adminPublicationName, function () {
   return this.ready();
 });
 
+Meteor.publish(Items.usersPublicationName, function () {
+  if (this.userId) {
+    return Items.collection.find();
+  }
+  return this.ready();
+});
 // Profile
 Meteor.publish(Profiles.userPublicationName, function () {
   if (this.userId) {

@@ -13,7 +13,7 @@ const ListItem = () => {
     // Note that this subscription will get cleaned up
     // when your component is unmounted or deps change.
     // Get access to Item documents.
-    const subscription = Meteor.subscribe(Items.usersPublicationName);
+    const subscription = Meteor.subscribe(Items.userPublicationName);
     // Determine if the subscription is ready
     const rdy = subscription.ready();
     // Get the Item documents
@@ -28,7 +28,7 @@ const ListItem = () => {
       <Row className="justify-content-center">
         <Col md={7}>
           <Col className="text-center">
-            <h2>Item List</h2>
+            <h2>Your Item List</h2>
           </Col>
           <Table striped bordered hover>
             <thead>

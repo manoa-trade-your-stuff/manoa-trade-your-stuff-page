@@ -24,6 +24,7 @@ import ListItem from '../pages/ListItem';
 import AddItem from '../pages/AddItem';
 import ListItemAdmin from '../pages/ListItemAdmin';
 import EditItem from '../pages/EditItem';
+import UserListItem from '../pages/UserListItem';
 
 /** Category */
 import Categories from '../pages/Categories';
@@ -68,6 +69,7 @@ const App = () => {
 
           <Route path="/addItem" element={<ProtectedRoute><AddItem /></ProtectedRoute>} />
           <Route path="/listItem" element={<ProtectedRoute><ListItem /></ProtectedRoute>} />
+          <Route path="/userListItem" element={<ProtectedRoute><UserListItem /></ProtectedRoute>} />
           <Route path="/editItem/:_id" element={<ProtectedRoute><EditItem /></ProtectedRoute>} />
           <Route path="/listItemAdmin" element={<AdminProtectedRoute ready={ready}><ListItemAdmin /></AdminProtectedRoute>} />
 

@@ -33,6 +33,8 @@ class ItemsCollection {
     this.collection.attachSchema(this.schema);
     // Define names for publications and subscriptions
     this.userPublicationName = `${this.name}.publication.user`;
+    // List all the items for user
+    this.usersPublicationName = `${this.name}.publication.users`;
     this.adminPublicationName = `${this.name}.publication.admin`;
   }
 }
