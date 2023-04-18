@@ -1,6 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { Items } from '../../api/item/Item.js';
 import { Profiles } from '../../api/profile/Profiles';
+import { Offer } from '../../api/Offer/Offer';
 import { Complaints } from '../../api/Complaints/Complaints';
 
 /* eslint-disable no-console */
@@ -30,7 +31,18 @@ if (Profiles.collection.find().count() === 0) {
     Meteor.settings.defaultProfiles.forEach(profile => addProfile(profile));
   }
 }
+// Offer
+const addOffer = (offer) => {
+  console.log(`Adding: ${offer.lastName} (${offer.owner})`);
+  Offer.collection.insert(offer);
+};
 
+if (Offer.collection.find().count() === 0) {
+  if (Meteor.settings.defaultOffer) {
+    console.log('Creating default profiles.');
+    Meteor.settings.defaultOffer.forEach(offer => addOffer(offer));
+  }
+}
 // ComplaintCollections
 const addComplaint = (complaint) => {
   console.log(`Adding: ${complaint.lastName} (${complaint.owner})`);

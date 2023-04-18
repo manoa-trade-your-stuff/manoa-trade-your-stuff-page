@@ -3,6 +3,7 @@ import { Roles } from 'meteor/alanning:roles';
 import { Items } from '../../api/item/Item';
 import { Profiles } from '../../api/profile/Profiles';
 import { Complaints } from '../../api/Complaints/Complaints';
+import { Offer } from '../../api/Offer/Offer';
 
 // Item
 Meteor.publish(Items.userPublicationName, function () {
@@ -44,7 +45,12 @@ Meteor.publish(Complaints.userPublicationName, function () {
   }
   return this.ready();
 });
-
+Meteor.publish(Offer.adminPublicationName, function () {
+  if (this.userId && Roles.userIsInRole(this.userId, 'admin')) {
+    return Offer.collection.find();
+  }
+  return this.ready();
+});
 Meteor.publish(Complaints.adminPublicationName, function () {
   if (this.userId && Roles.userIsInRole(this.userId, 'admin')) {
     return Complaints.collection.find();

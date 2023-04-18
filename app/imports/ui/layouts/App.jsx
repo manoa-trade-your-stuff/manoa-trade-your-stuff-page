@@ -79,7 +79,6 @@ const App = () => {
           <Route path="/categoriesElectronics" element={<ProtectedRoute><CategoriesElectronics /></ProtectedRoute>} />
           <Route path="/categoriesHouseholdsGoods" element={<ProtectedRoute><CategoriesHouseholdsGoods /></ProtectedRoute>} />
           <Route path="/categoriesOthers" element={<ProtectedRoute><CategoriesOthers /></ProtectedRoute>} />
-
           <Route path="/notify-admin" element={<NotifyAdmin />} />
         </Routes>
         <Footer />
