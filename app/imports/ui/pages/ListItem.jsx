@@ -30,7 +30,7 @@ const ListItem = () => {
           <Col className="text-center">
             <h2>Item List</h2>
           </Col>
-          <Table striped bordered hover variant="dark">
+          <Table striped bordered hover>
             <thead>
               <tr>
                 <th>Image</th>
