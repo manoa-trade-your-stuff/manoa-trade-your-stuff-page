@@ -54,6 +54,19 @@ const AddComplaints = () => {
               </Card.Body>
             </Card>
           </AutoForm>
+          {Meteor.user()?.isAdmin && (
+            <div className="mt-3">
+              <h3>Complaints</h3>
+              <ul>
+                {Complaints.find().fetch().map(complaint => (
+                  <li key={complaint._id}>
+                    <p>{complaint.firstName} {complaint.lastName}</p>
+                    <p>{complaint.incident}</p>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
         </Col>
       </Row>
     </Container>
