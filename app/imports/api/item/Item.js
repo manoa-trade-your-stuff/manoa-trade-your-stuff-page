@@ -4,10 +4,10 @@ import SimpleSchema from 'simpl-schema';
 /**
  * The StuffsCollection. It encapsulates state and variable values for stuff.
  */
-class StuffsCollection {
+class ItemsCollection {
   constructor() {
     // The name of this collection.
-    this.name = 'StuffsCollection';
+    this.name = 'ItemsCollection';
     // Define the Mongo collection.
     this.collection = new Mongo.Collection(this.name);
     // Define the structure of each document in the collection.
@@ -34,6 +34,8 @@ class StuffsCollection {
     this.collection.attachSchema(this.schema);
     // Define names for publications and subscriptions
     this.userPublicationName = `${this.name}.publication.user`;
+
+    this.usersPublicationName = `${this.name}.publication.users`;
     this.adminPublicationName = `${this.name}.publication.admin`;
   }
 }
@@ -42,4 +44,4 @@ class StuffsCollection {
  * The singleton instance of the StuffsCollection.
  * @type {StuffsCollection}
  */
-export const Stuffs = new StuffsCollection();
+export const Items = new ItemsCollection();

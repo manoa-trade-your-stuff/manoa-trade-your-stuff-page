@@ -3,26 +3,25 @@ import { Meteor } from 'meteor/meteor';
 import { Col, Container, Row, Table } from 'react-bootstrap';
 import { useTracker } from 'meteor/react-meteor-data';
 import { useParams } from 'react-router';
-import { Stuffs } from '../../api/stuff/Stuff';
-import StuffItem from '../components/StuffItem';
+import { Items } from '../../api/item/Item';
 import LoadingSpinner from '../components/LoadingSpinner';
 
-/* Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
+/* Renders a table containing all of the Item documents. Use <Item> to render each row. */
 const Category = () => {
   const { category } = useParams();
   console.log(category);
   // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
-  const { ready, stuffs } = useTracker(() => {
+  const { ready, item } = useTracker(() => {
     // Note that this subscription will get cleaned up
     // when your component is unmounted or deps change.
-    // Get access to Stuff documents.
-    const subscription = Meteor.subscribe(Stuffs.userPublicationName);
+    // Get access to Items documents.
+    const subscription = Meteor.subscribe(Items.userPublicationName);
     // Determine if the subscription is ready
     const rdy = subscription.ready();
-    // Get the Stuff documents
-    const stuffItems = Stuffs.collection.find({ category }).fetch();
+    // Get the Items documents
+    const items = Items.collection.find({ category }).fetch();
     return {
-      stuffs: stuffItems,
+      items: items,
       ready: rdy,
     };
   }, []);
@@ -45,7 +44,7 @@ const Category = () => {
               </tr>
             </thead>
             <tbody>
-              {stuffs.map((stuff) => <StuffItem key={stuff._id} stuff={stuff} />)}
+              {item.map((item) => <Items key={item._id} item={item} />)}
             </tbody>
           </Table>
         </Col>
