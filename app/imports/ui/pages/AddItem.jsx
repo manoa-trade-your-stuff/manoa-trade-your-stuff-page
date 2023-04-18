@@ -18,7 +18,7 @@ const formSchema = new SimpleSchema({
   },
   category: {
     type: String,
-    allowedValues: ['Books', 'Clothings', 'Electronics', 'Others'],
+    allowedValues: ['Books', 'Clothings', 'Electronics', 'Household', 'Others'],
   },
   description: {
     type: String,

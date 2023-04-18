@@ -2,12 +2,15 @@ import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { Col, Container, Row, Table } from 'react-bootstrap';
 import { useTracker } from 'meteor/react-meteor-data';
+import { useParams } from 'react-router';
 import { Stuffs } from '../../api/stuff/Stuff';
 import StuffItem from '../components/StuffItem';
 import LoadingSpinner from '../components/LoadingSpinner';
 
 /* Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
-const ListItem = () => {
+const Category = () => {
+  const { category } = useParams();
+  console.log(category);
   // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
   const { ready, stuffs } = useTracker(() => {
     // Note that this subscription will get cleaned up
@@ -17,7 +20,7 @@ const ListItem = () => {
     // Determine if the subscription is ready
     const rdy = subscription.ready();
     // Get the Stuff documents
-    const stuffItems = Stuffs.collection.find({}).fetch();
+    const stuffItems = Stuffs.collection.find({ category }).fetch();
     return {
       stuffs: stuffItems,
       ready: rdy,
@@ -28,21 +31,21 @@ const ListItem = () => {
       <Row className="justify-content-center">
         <Col md={7}>
           <Col className="text-center">
-            <h2>Item List</h2>
+            <h2>Item Lists</h2>
           </Col>
           <Table striped bordered hover>
             <thead>
-            <tr>
-              <th>Name</th>
-              <th>Quantity</th>
-              <th>Condition</th>
-              <th>Category</th>
-              <th>Description</th>
-              <th>Edit</th>
-            </tr>
+              <tr>
+                <th>Name</th>
+                <th>Quantity</th>
+                <th>Condition</th>
+                <th>Category</th>
+                <th>Description</th>
+                <th>Edit</th>
+              </tr>
             </thead>
             <tbody>
-            {stuffs.map((stuff) => <StuffItem key={stuff._id} stuff={stuff} />)}
+              {stuffs.map((stuff) => <StuffItem key={stuff._id} stuff={stuff} />)}
             </tbody>
           </Table>
         </Col>
@@ -51,4 +54,4 @@ const ListItem = () => {
   ) : <LoadingSpinner />);
 };
 
-export default ListItem;
+export default Category;

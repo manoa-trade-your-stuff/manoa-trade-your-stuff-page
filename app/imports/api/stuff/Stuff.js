@@ -17,8 +17,8 @@ class StuffsCollection {
       owner: String,
       category: {
         type: String,
-        allowedValues: ['Choose a Category', 'Books', 'Clothings', 'Electronics', 'Others'],
-        defaultValue: 'Choose a Category',
+        allowedValues: ['Category', 'Books', 'Clothings', 'Electronics', 'Household', 'Others'],
+        defaultValue: 'Category',
       },
       condition: {
         type: String,

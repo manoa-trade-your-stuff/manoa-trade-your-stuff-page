@@ -31,10 +31,11 @@ import ListStuffAdmin from '../pages/ListStuffAdmin';
 import ListItem from '../pages/ListItem';
 import AddItem from '../pages/AddItem';
 import Categories from '../pages/Categories';
-import CategoriesBook from '../pages/CategoriesBook';
+
 
 import ListCategories from '../pages/ListCategories';
 import AddComplaints from '../pages/NotifyAdmin';
+import Category from '../pages/Category';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 const App = () => {
@@ -62,12 +63,12 @@ const App = () => {
           <Route path="/addProfile" element={<ProtectedRoute><AddProfile /></ProtectedRoute>} />
           <Route path="/complaints" element={<ProtectedRoute><AddComplaints /></ProtectedRoute>} />
           <Route path="/editProfile/:_id" element={<ProtectedRoute><EditProfile /></ProtectedRoute>} />
+          <Route path="/category/:category" element={<ProtectedRoute><Category /></ProtectedRoute>} />
           <Route path="/admin" element={<AdminProtectedRoute ready={ready}><ListProfilesAdmin /></AdminProtectedRoute>} />
 
           <Route path="/addItem" element={<ProtectedRoute><AddItem /></ProtectedRoute>} />
           <Route path="/listItem" element={<ProtectedRoute><ListItem /></ProtectedRoute>} />
           <Route path="/categories" element={<ProtectedRoute><Categories /></ProtectedRoute>} />
-          <Route path="/categoriesBook" element={<ProtectedRoute><CategoriesBook /></ProtectedRoute>} />
 
           <Route path="/edit/:_id" element={<ProtectedRoute><EditStuff /></ProtectedRoute>} />
           <Route path="/listprofileadmin" element={<AdminProtectedRoute ready={ready}><ListProfilesAdmin /></AdminProtectedRoute>} />
