@@ -6,11 +6,11 @@ const Categories = () => (
     <Col xs={5}>
       <Col className="text-center" id="color"><h2>Category</h2></Col>
       <Col className="d-flex justify-content-center p-5 col px-md-5">
-        <Button id="buttonSpace"><a href="CategoriesBook" id="color">Books</a></Button>
-        <Button id="buttonSpace"><a href="CategoriesClothings" id="color">Clothings</a></Button>
-        <Button id="buttonSpace"><a href="CategoriesElectronics" id="color">Electronics</a></Button>
-        <Button id="buttonSpace"><a href="CategoriesHouseholdsGoods" id="color">Households goods</a></Button>
-        <Button id="buttonSpace"><a href="CategoriesOthers" id="color">Others</a></Button>
+        <Button id="buttonSpace"><a href="category/Books" id="color">Books</a></Button>
+        <Button id="buttonSpace"><a href="category/Clothing" id="color">Clothing</a></Button>
+        <Button id="buttonSpace"><a href="category/Electronics" id="color">Electronics</a></Button>
+        <Button id="buttonSpace"><a href="category/Household" id="color">Household Goods</a></Button>
+        <Button id="buttonSpace"><a href="category/Others" id="color">Others</a></Button>
       </Col>
     </Col>
   </Row>

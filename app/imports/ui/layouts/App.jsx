@@ -24,19 +24,14 @@ import ListItem from '../pages/ListItem';
 import AddItem from '../pages/AddItem';
 import ListItemAdmin from '../pages/ListItemAdmin';
 import EditItem from '../pages/EditItem';
-import UserListItem from '../pages/UserListItem';
+import ListItemUser from '../pages/ListItemUser';
 
 /** Category */
+import Category from '../pages/Category';
 import Categories from '../pages/Categories';
-import CategoriesBook from '../pages/CategoriesBook';
-import ListCategories from '../pages/ListCategories';
 
 /** Complaint */
 import AddComplaints from '../pages/NotifyAdmin';
-import CategoriesClothings from '../pages/CategoriesClothings';
-import CategoriesElectronics from '../pages/CategoriesElectronics';
-import CategoriesHouseholdsGoods from '../pages/CategoriesHouseholdsGoods';
-import CategoriesOthers from '../pages/CategoriesOthers';
 
 /** Notify Admin */
 import NotifyAdmin from '../pages/NotifyAdmin';
@@ -69,18 +64,14 @@ const App = () => {
 
           <Route path="/addItem" element={<ProtectedRoute><AddItem /></ProtectedRoute>} />
           <Route path="/listItem" element={<ProtectedRoute><ListItem /></ProtectedRoute>} />
-          <Route path="/userListItem" element={<ProtectedRoute><UserListItem /></ProtectedRoute>} />
+          <Route path="/userListItem" element={<ProtectedRoute><ListItemUser /></ProtectedRoute>} />
           <Route path="/editItem/:_id" element={<ProtectedRoute><EditItem /></ProtectedRoute>} />
           <Route path="/listItemAdmin" element={<AdminProtectedRoute ready={ready}><ListItemAdmin /></AdminProtectedRoute>} />
 
           <Route path="/complaints" element={<ProtectedRoute><AddComplaints /></ProtectedRoute>} />
 
           <Route path="/categories" element={<ProtectedRoute><Categories /></ProtectedRoute>} />
-          <Route path="/categoriesBook" element={<ProtectedRoute><CategoriesBook /></ProtectedRoute>} />
-          <Route path="/categoriesClothings" element={<ProtectedRoute><CategoriesClothings /></ProtectedRoute>} />
-          <Route path="/categoriesElectronics" element={<ProtectedRoute><CategoriesElectronics /></ProtectedRoute>} />
-          <Route path="/categoriesHouseholdsGoods" element={<ProtectedRoute><CategoriesHouseholdsGoods /></ProtectedRoute>} />
-          <Route path="/categoriesOthers" element={<ProtectedRoute><CategoriesOthers /></ProtectedRoute>} />
+          <Route path="/category/:category" element={<ProtectedRoute><Category /></ProtectedRoute>} />
 
           <Route path="/notify-admin" element={<NotifyAdmin />} />
         </Routes>
