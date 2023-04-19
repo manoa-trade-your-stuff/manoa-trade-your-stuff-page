@@ -31,7 +31,7 @@ const NavBar = () => {
               /** Item */
               <Nav.Link id="add-item-nav" as={NavLink} to="/addItem" key="addItem">Add Item</Nav.Link>,
               <Nav.Link id="list-item-nav" as={NavLink} to="/listItem" key="listItem">Item Lists</Nav.Link>,
-              <Nav.Link id="list-item-nav" as={NavLink} to="/userListItem" key="listItem">Your Item Lists</Nav.Link>,
+              /** <Nav.Link id="list-item-nav" as={NavLink} to="/userListItem" key="listItem">Your Item Lists</Nav.Link>, */
               /** Category */
               <Nav.Link id="categories-nav" as={NavLink} to="/categories" key="categories">Category</Nav.Link>,
               /** Complaint */
