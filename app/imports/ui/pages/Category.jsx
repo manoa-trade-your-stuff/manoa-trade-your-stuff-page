@@ -20,9 +20,9 @@ const Category = () => {
     // Determine if the subscription is ready
     const rdy = subscription.ready();
     // Get the Items documents
-    const items = Items.collection.find({ category }).fetch();
+    const userItems = Items.collection.find({ category }).fetch();
     return {
-      items: items,
+      items: userItems,
       ready: rdy,
     };
   }, []);
@@ -35,11 +35,11 @@ const Category = () => {
           </Col>
           <Table striped bordered hover>
             <thead>
-            <tr>
-              <th>Image</th>
-              <th>Name</th>
-              <th>Quantity</th>
-              <th>Condition</th>
+              <tr>
+                <th>Image</th>
+                <th>Name</th>
+                <th>Quantity</th>
+                <th>Condition</th>
               <th>Category</th>
               <th>Description</th>
             </tr>
