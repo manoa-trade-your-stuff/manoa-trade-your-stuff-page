@@ -32,8 +32,8 @@ const EditItem = () => {
   // console.log('EditItem', doc, ready);
   // On successful submit, insert the data.
   const submit = (data) => {
-    const { name, quantity, condition, image } = data;
-    Items.collection.update(_id, { $set: { name, quantity, image, condition } }, (error) => (error ?
+    const { name, quantity, condition, image, category, description } = data;
+    Items.collection.update(_id, { $set: { name, quantity, image, condition, category, description } }, (error) => (error ?
       swal('Error', error.message, 'error') :
       swal('Success', 'Item updated successfully', 'success')));
   };
