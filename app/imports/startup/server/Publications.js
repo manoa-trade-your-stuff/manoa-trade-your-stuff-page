@@ -13,6 +13,13 @@ Meteor.publish(Items.userPublicationName, function () {
   return this.ready();
 });
 
+Meteor.publish(Items.usersPublicationName, function () {
+  if (this.userId) {
+    return Items.collection.find();
+  }
+  return this.ready();
+});
+
 Meteor.publish(Items.adminPublicationName, function () {
   if (this.userId && Roles.userIsInRole(this.userId, 'admin')) {
     return Items.collection.find();
@@ -20,12 +27,6 @@ Meteor.publish(Items.adminPublicationName, function () {
   return this.ready();
 });
 
-Meteor.publish(Items.usersPublicationName, function () {
-  if (this.userId) {
-    return Items.collection.find();
-  }
-  return this.ready();
-});
 // Profile
 Meteor.publish(Profiles.userPublicationName, function () {
   if (this.userId) {

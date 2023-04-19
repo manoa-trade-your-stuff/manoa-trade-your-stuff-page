@@ -3,15 +3,12 @@ import { Items } from '../../api/item/Item.js';
 import { Profiles } from '../../api/profile/Profiles';
 import { Complaints } from '../../api/Complaints/Complaints';
 
-/* eslint-disable no-console */
-
-// Initialize the database with a default data document.
+// ItemCollection
 const addData = (data) => {
   console.log(`  Adding: ${data.name} (${data.owner})`);
   Items.collection.insert(data);
 };
 
-// Initialize the ItemsCollection if empty.
 if (Items.collection.find().count() === 0) {
   if (Meteor.settings.defaultData) {
     console.log('Creating default Items.');
