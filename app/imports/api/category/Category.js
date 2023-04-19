@@ -16,8 +16,8 @@ class CategoryCollection {
       quantity: Number,
       condition: {
         type: String,
-        allowedValues: ['excellent', 'good', 'fair', 'poor'],
-        defaultValue: 'good',
+        allowedValues: ['Excellent', 'Good', 'Fair', 'Poor'],
+        defaultValue: 'Good',
       },
       image: String,
       description: String,

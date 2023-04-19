@@ -27,9 +27,7 @@ import EditItem from '../pages/EditItem';
 import UserListItem from '../pages/UserListItem';
 
 /** Category */
-import Categories from '../pages/Categories';
-import CategoriesBook from '../pages/CategoriesBook';
-import ListCategories from '../pages/ListCategories';
+import Category from '../pages/Category';
 
 /** Complaint */
 import AddComplaints from '../pages/NotifyAdmin';
@@ -75,8 +73,7 @@ const App = () => {
 
           <Route path="/complaints" element={<ProtectedRoute><AddComplaints /></ProtectedRoute>} />
 
-          <Route path="/categories" element={<ProtectedRoute><Categories /></ProtectedRoute>} />
-          <Route path="/categoriesBook" element={<ProtectedRoute><CategoriesBook /></ProtectedRoute>} />
+          <Route path="/category/:category" element={<ProtectedRoute><Category /></ProtectedRoute>} />
           <Route path="/categoriesClothings" element={<ProtectedRoute><CategoriesClothings /></ProtectedRoute>} />
           <Route path="/categoriesElectronics" element={<ProtectedRoute><CategoriesElectronics /></ProtectedRoute>} />
           <Route path="/categoriesHouseholdsGoods" element={<ProtectedRoute><CategoriesHouseholdsGoods /></ProtectedRoute>} />
