@@ -27,11 +27,11 @@ const NavBar = () => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto justify-content-start">
             {currentUser ? ([
-              <Nav.Link id="list-stuff-nav" as={NavLink} to="/listProfile" key="listProfile">Profile</Nav.Link>,
+              <Nav.Link id="list-item-nav" as={NavLink} to="/listProfile" key="listProfile">Profile</Nav.Link>,
               /** Item */
-              <Nav.Link id="add-stuff-nav" as={NavLink} to="/addItem" key="addItem">Add Item</Nav.Link>,
-              <Nav.Link id="list-stuff-nav" as={NavLink} to="/listItem" key="listItem">Item Lists</Nav.Link>,
-              <Nav.Link id="list-stuff-nav" as={NavLink} to="/userListItem" key="listItem">Your Item Lists</Nav.Link>,
+              <Nav.Link id="add-item-nav" as={NavLink} to="/addItem" key="addItem">Add Item</Nav.Link>,
+              <Nav.Link id="list-item-nav" as={NavLink} to="/listItem" key="listItem">Item Lists</Nav.Link>,
+              <Nav.Link id="list-item-nav" as={NavLink} to="/userListItem" key="listItem">Your Item Lists</Nav.Link>,
               /** Category */
               <Nav.Link id="categories-nav" as={NavLink} to="/categories" key="categories">Category</Nav.Link>,
               /** Complaint */
@@ -40,10 +40,10 @@ const NavBar = () => {
             {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
               <div className="d-flex">
                 <Nav className="me-auto">
-                  <Nav.Link id="list-stuff-admin-nav" as={NavLink} to="/listItemAdmin" key="admin">Item Admin</Nav.Link>
+                  <Nav.Link id="list-item-admin-nav" as={NavLink} to="/listItemAdmin" key="admin">Item Admin</Nav.Link>
                 </Nav>
                 <Nav className="ml-auto">
-                  <Nav.Link id="list-stuff-admin-nav" as={NavLink} to="/listProfileAdmin" key="admin">Profile Admin</Nav.Link>
+                  <Nav.Link id="list-item-admin-nav" as={NavLink} to="/listProfileAdmin" key="admin">Profile Admin</Nav.Link>
                 </Nav>
               </div>
             ) : ''}

@@ -19,6 +19,11 @@ class CategoryCollection {
         allowedValues: ['excellent', 'good', 'fair', 'poor'],
         defaultValue: 'good',
       },
+      category: {
+        type: String,
+        allowedValues: ['Books', 'Clothings', 'Electronics', 'Household', 'Others'],
+        defaultValue: 'Books',
+      },
       image: String,
       description: String,
     });
