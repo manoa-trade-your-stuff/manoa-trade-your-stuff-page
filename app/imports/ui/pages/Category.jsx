@@ -40,12 +40,12 @@ const Category = () => {
                 <th>Name</th>
                 <th>Quantity</th>
                 <th>Condition</th>
-              <th>Category</th>
-              <th>Description</th>
-            </tr>
+                <th>Category</th>
+                <th>Description</th>
+              </tr>
             </thead>
             <tbody>
-            {items.map((item) => <Item key={item._id} item={item} />)}
+              {items.map((item) => <Item key={item.category} item={item} />)}
             </tbody>
           </Table>
         </Col>
