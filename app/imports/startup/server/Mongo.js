@@ -5,7 +5,7 @@ import { Complaints } from '../../api/Complaints/Complaints';
 
 /* eslint-disable no-console */
 
-// Initialize the database with a default data document.
+// ItemCollection
 const addData = (data) => {
   console.log(`  Adding: ${data.name} (${data.owner})`);
   Items.collection.insert(data);

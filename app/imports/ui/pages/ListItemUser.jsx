@@ -7,7 +7,7 @@ import LoadingSpinner from '../components/LoadingSpinner';
 import UserItem from '../components/UserItem';
 
 /* Renders a table containing all of the Item documents. Use <UserItem> to render each row. */
-const UserListItem = () => {
+const ListItemUser = () => {
   // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
   const { ready, items } = useTracker(() => {
     // Note that this subscription will get cleaned up
@@ -52,4 +52,4 @@ const UserListItem = () => {
   ) : <LoadingSpinner />);
 };
 
-export default UserListItem;
+export default ListItemUser;

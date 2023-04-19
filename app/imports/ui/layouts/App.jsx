@@ -24,11 +24,11 @@ import ListItem from '../pages/ListItem';
 import AddItem from '../pages/AddItem';
 import ListItemAdmin from '../pages/ListItemAdmin';
 import EditItem from '../pages/EditItem';
-import UserListItem from '../pages/UserListItem';
+import ListItemUser from '../pages/ListItemUser';
 
 /** Category */
-import Categories from '../pages/Categories';
 import Category from '../pages/Category';
+import Categories from '../pages/Categories';
 
 /** Complaint */
 import AddComplaints from '../pages/NotifyAdmin';
@@ -64,14 +64,14 @@ const App = () => {
 
           <Route path="/addItem" element={<ProtectedRoute><AddItem /></ProtectedRoute>} />
           <Route path="/listItem" element={<ProtectedRoute><ListItem /></ProtectedRoute>} />
-          <Route path="/userListItem" element={<ProtectedRoute><UserListItem /></ProtectedRoute>} />
+          <Route path="/userListItem" element={<ProtectedRoute><ListItemUser /></ProtectedRoute>} />
           <Route path="/editItem/:_id" element={<ProtectedRoute><EditItem /></ProtectedRoute>} />
           <Route path="/listItemAdmin" element={<AdminProtectedRoute ready={ready}><ListItemAdmin /></AdminProtectedRoute>} />
 
           <Route path="/complaints" element={<ProtectedRoute><AddComplaints /></ProtectedRoute>} />
 
           <Route path="/categories" element={<ProtectedRoute><Categories /></ProtectedRoute>} />
-          <Route path="/category" element={<ProtectedRoute><Category /></ProtectedRoute>} />
+          <Route path="/category/:category" element={<ProtectedRoute><Category /></ProtectedRoute>} />
 
           <Route path="/notify-admin" element={<NotifyAdmin />} />
         </Routes>

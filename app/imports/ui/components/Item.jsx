@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 import { Image } from 'react-bootstrap';
 
 /** Renders a single row in the List Item table. See pages/ListItem.jsx. */

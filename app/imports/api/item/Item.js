@@ -2,7 +2,7 @@ import { Mongo } from 'meteor/mongo';
 import SimpleSchema from 'simpl-schema';
 
 /**
- * The StuffsCollection. It encapsulates state and variable values for stuff.
+ * The ItemsCollection. It encapsulates state and variable values for item.
  */
 class ItemsCollection {
   constructor() {
@@ -15,33 +15,32 @@ class ItemsCollection {
       name: String,
       quantity: Number,
       owner: String,
-      category: {
-        type: String,
-        allowedValues: ['Category', 'Books', 'Clothings', 'Electronics', 'Household', 'Others'],
-        defaultValue: 'Category',
-      },
-      condition: {
-        type: String,
-        allowedValues: ['excellent', 'good', 'fair', 'poor'],
-        defaultValue: 'good',
-      },
+      image: String,
       description: {
         type: String,
         defaultValue: 'Describe your item here',
+      },
+      category: {
+        type: String,
+        allowedValues: ['Books', 'Clothing', 'Electronics', 'Household', 'Others'],
+      },
+      condition: {
+        type: String,
+        allowedValues: ['Excellent', 'Good', 'Fair', 'Poor'],
       },
     });
     // Attach the schema to the collection, so all attempts to insert a document are checked against schema.
     this.collection.attachSchema(this.schema);
     // Define names for publications and subscriptions
     this.userPublicationName = `${this.name}.publication.user`;
-
+    // List all the items for user
     this.usersPublicationName = `${this.name}.publication.users`;
     this.adminPublicationName = `${this.name}.publication.admin`;
   }
 }
 
 /**
- * The singleton instance of the StuffsCollection.
- * @type {StuffsCollection}
+ * The singleton instance of the ItemsCollection.
+ * @type {ItemsCollection}
  */
 export const Items = new ItemsCollection();

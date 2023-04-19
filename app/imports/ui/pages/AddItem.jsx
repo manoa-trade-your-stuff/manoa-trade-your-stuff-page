@@ -11,14 +11,16 @@ import { Items } from '../../api/item/Item';
 const formSchema = new SimpleSchema({
   name: String,
   quantity: Number,
+  image: String,
   condition: {
     type: String,
-    allowedValues: ['excellent', 'good', 'fair', 'poor'],
-    defaultValue: 'good',
+    allowedValues: ['Excellent', 'Good', 'Fair', 'Poor'],
+    defaultValue: 'Good',
   },
   category: {
     type: String,
-    allowedValues: ['Books', 'Clothings', 'Electronics', 'Household', 'Others'],
+    allowedValues: ['Books', 'Clothing', 'Electronics', 'Household', 'Others'],
+    defaultValue: 'Others',
   },
   description: {
     type: String,
@@ -28,15 +30,15 @@ const formSchema = new SimpleSchema({
 
 const bridge = new SimpleSchema2Bridge(formSchema);
 
-/* Renders the Additem page for adding a document. */
+/* Renders the AddItem page for adding a document. */
 const AddItem = () => {
 
   // On submit, insert the data.
   const submit = (data, formRef) => {
-    const { name, quantity, condition, category, description } = data;
+    const { name, quantity, condition, category, image, description } = data;
     const owner = Meteor.user().username;
     Items.collection.insert(
-      { name, quantity, condition, category, description, owner },
+      { name, quantity, condition, category, image, description, owner },
       (error) => {
         if (error) {
           swal('Error', error.message, 'error');
@@ -54,7 +56,7 @@ const AddItem = () => {
     <Container className="py-3">
       <Row className="justify-content-center">
         <Col xs={5}>
-          <Col className="text-center"><h2>Add your Item</h2></Col>
+          <Col className="text-center"><h2>Add Item</h2></Col>
           <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => submit(data, fRef)}>
             <Card>
               <Card.Body>
@@ -62,6 +64,7 @@ const AddItem = () => {
                 <NumField name="quantity" decimal={null} />
                 <SelectField name="condition" />
                 <SelectField name="category" />
+                <TextField name="image" />
                 <LongTextField name="description" />
                 <SubmitField value="Submit" />
                 <ErrorsField />
