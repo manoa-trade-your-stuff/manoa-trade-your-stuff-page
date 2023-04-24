@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Col, Container, Row, Table } from 'react-bootstrap';
+import { Col, Container, Row, Table, Button } from 'react-bootstrap';
 import { useTracker } from 'meteor/react-meteor-data';
 import { useParams } from 'react-router';
 import { Items } from '../../api/item/Item';
@@ -29,6 +29,7 @@ const Category = () => {
   return (ready ? (
     <Container className="py-3">
       <Row className="justify-content-center">
+        <Button id="homeButton"><a href="/categories" id="color">Home</a></Button>
         <Col md={7}>
           <Col className="text-center">
             <h2>Item Lists</h2>
