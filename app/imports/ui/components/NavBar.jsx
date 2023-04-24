@@ -21,7 +21,7 @@ const NavBar = () => {
     <Navbar bg="light" expand="lg">
       <Container>
         <Navbar.Brand as={NavLink} to="/">
-          <h4>Manoa Trade your Stuff Homepage</h4>
+          <h4>Manoa Trade your Stuff Home</h4>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
@@ -44,6 +44,9 @@ const NavBar = () => {
                 </Nav>
                 <Nav className="ml-auto">
                   <Nav.Link id="list-item-admin-nav" as={NavLink} to="/listProfileAdmin" key="admin">Profile Admin</Nav.Link>
+                </Nav>
+                <Nav className="ml-auto">
+                  <Nav.Link id="complaints-admin-nav" as={NavLink} to="/listComplaintsAdmin" key="admin">Complaints List Admin</Nav.Link>,
                 </Nav>
               </div>
             ) : ''}
