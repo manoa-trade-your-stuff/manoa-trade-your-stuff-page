@@ -4,16 +4,16 @@ import { Col, Container, Row, Table } from 'react-bootstrap';
 import { useTracker } from 'meteor/react-meteor-data';
 import LoadingSpinner from '../components/LoadingSpinner';
 import { Complaints } from '../../api/Complaints/Complaints';
-import Complaint from '../components/Complaint';
+import ComplaintAdmin from '../components/Complaint';
 
 /* Renders a table containing all of the Item documents. Use <ItemItem> to render each row. */
 const ListComplaints = () => {
   // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
-  const { ready, complaints } = useTracker(() => {
+  const { complaints, ready } = useTracker(() => {
     // Note that this subscription will get cleaned up
     // when your component is unmounted or deps change.
     // Get access to Complaint documents.
-    const subscription = Meteor.subscribe(Complaints.userPublicationName);
+    const subscription = Meteor.subscribe(Complaints.adminPublicationName);
     // Determine if the subscription is ready
     const rdy = subscription.ready();
     // Get the Complaint documents
@@ -36,10 +36,11 @@ const ListComplaints = () => {
                 <th>FirstName</th>
                 <th>LastName</th>
                 <th>Incident</th>
+                <th>Owner</th>
               </tr>
             </thead>
             <tbody>
-              {complaints.map((complaint) => <Complaint key={complaint._id} complaint={complaint} />)}
+              {complaints.map((complaint) => <ComplaintAdmin key={complaint._id} complaint={complaint} />)}
             </tbody>
           </Table>
         </Col>
