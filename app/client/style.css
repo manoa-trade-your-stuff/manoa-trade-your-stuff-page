@@ -72,3 +72,7 @@ footer, footer a {
   background-color: green;
   color: white;
 }
+
+#backgroundColor {
+  background-color: lightgray;
+}

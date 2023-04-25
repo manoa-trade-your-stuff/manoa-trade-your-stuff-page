@@ -31,10 +31,10 @@ const Category = () => {
       <Row className="justify-content-center">
         <Button id="homeButton"><a href="/categories" id="color">Home</a></Button>
         <Col md={7}>
-          <Col className="text-center">
+          <Col className="text-center" id="color">
             <h2>Item Lists</h2>
           </Col>
-          <Table striped bordered hover>
+          <Table striped bordered hover id="backgroundColor">
             <thead>
               <tr>
                 <th>Name</th>
