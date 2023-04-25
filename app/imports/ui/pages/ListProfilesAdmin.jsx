@@ -17,9 +17,9 @@ const ListProfilesAdmin = () => {
     // Determine if the subscription is ready
     const rdy = subscription.ready();
     // Get the Profile documents
-    const profileItems = Profiles.collection.find({}).fetch();
+    const profilesprofiles = Profiles.collection.find({}).fetch();
     return {
-      profiles: profileItems,
+      profiles: profilesprofiles,
       ready: rdy,
     };
   }, []);
