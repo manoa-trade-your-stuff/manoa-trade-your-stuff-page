@@ -20,9 +20,9 @@ const Category = () => {
     // Determine if the subscription is ready
     const rdy = subscription.ready();
     // Get the Item documents
-    const items = Items.collection.find({ category }).fetch();
+    const item = Items.collection.find({ category }).fetch();
     return {
-      items: items,
+      items: item,
       ready: rdy,
     };
   }, []);

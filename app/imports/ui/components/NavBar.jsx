@@ -21,12 +21,13 @@ const NavBar = () => {
     <Navbar bg="light" expand="lg">
       <Container>
         <Navbar.Brand as={NavLink} to="/">
-          <h4>Manoa Trade your Stuff Homepage</h4>
+          <h4>Manoa Trade your Stuff Home</h4>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto justify-content-start">
             {currentUser ? ([
+              /** Profile */
               <Nav.Link id="list-item-nav" as={NavLink} to="/listProfile" key="listProfile">Profile</Nav.Link>,
               /** Item */
               <Nav.Link id="add-item-nav" as={NavLink} to="/addItem" key="addItem">Add Item</Nav.Link>,
@@ -44,6 +45,9 @@ const NavBar = () => {
                 </Nav>
                 <Nav className="ml-auto">
                   <Nav.Link id="list-item-admin-nav" as={NavLink} to="/listProfileAdmin" key="admin">Profile Admin</Nav.Link>
+                </Nav>
+                <Nav className="ml-auto">
+                  <Nav.Link id="complaints-admin-nav" as={NavLink} to="/listComplaintsAdmin" key="admin">Complaints List Admin</Nav.Link>,
                 </Nav>
               </div>
             ) : ''}
