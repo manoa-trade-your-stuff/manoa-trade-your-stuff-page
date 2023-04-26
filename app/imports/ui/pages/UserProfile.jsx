@@ -20,12 +20,12 @@ const UserProfile = () => {
     // Determine if the subscription is ready
     const rdy = subscription1.ready() && subscription2.ready();
     // Get the Profile documents
-    const profileItems = Profiles.collection.find({}).fetch();
-    const items = Items.collection.find({}).fetch();
+    const profilesprofiles = Profiles.collection.find({}).fetch();
+    const itemsitems = Items.collection.find({}).fetch();
 
     return {
-      profiles: profileItems,
-      items: items,
+      profiles: profilesprofiles,
+      items: itemsitems,
       ready: rdy,
     };
   }, []);

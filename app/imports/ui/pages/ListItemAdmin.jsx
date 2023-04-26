@@ -15,9 +15,9 @@ const ListItemAdmin = () => {
     // Determine if the subscription is ready
     const rdy = subscription.ready();
     // Get the Item documents
-    const item = Items.collection.find({}).fetch();
+    const itemsitems = Items.collection.find({}).fetch();
     return {
-      items: item,
+      items: itemsitems,
       ready: rdy,
     };
   }, []);
