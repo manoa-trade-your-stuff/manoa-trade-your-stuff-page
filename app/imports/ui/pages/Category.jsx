@@ -16,7 +16,7 @@ const Category = () => {
     // Note that this subscription will get cleaned up
     // when your component is unmounted or deps change.
     // Get access to Item documents.
-    const subscription = Meteor.subscribe(Items.userPublicationName);
+    const subscription = Meteor.subscribe(Items.usersPublicationName);
     // Determine if the subscription is ready
     const rdy = subscription.ready();
     // Get the Item documents
@@ -37,16 +37,16 @@ const Category = () => {
           <Table striped bordered hover>
             <thead>
               <tr>
+                <th>Image</th>
                 <th>Name</th>
                 <th>Quantity</th>
                 <th>Condition</th>
                 <th>Category</th>
                 <th>Description</th>
-                <th>Edit</th>
               </tr>
             </thead>
             <tbody>
-              {items.map((item) => <Item key={item._id} item={item} />)}
+              {items.map((item) => <Item key={item.category} item={item} />)}
             </tbody>
           </Table>
         </Col>
