@@ -4,12 +4,12 @@ import { Col, Container, Row, Table } from 'react-bootstrap';
 import { useTracker } from 'meteor/react-meteor-data';
 import LoadingSpinner from '../components/LoadingSpinner';
 import { Complaints } from '../../api/Complaints/Complaints';
-import ComplaintAdmin from '../components/Complaint';
+import ComplaintAdmin from '../components/ComplaintAdmin';
 
 /* Renders a table containing all of the Item documents. Use <ItemItem> to render each row. */
 const ListComplaints = () => {
   // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
-  const { complaints, ready } = useTracker(() => {
+  const { ready, complaints } = useTracker(() => {
     // Note that this subscription will get cleaned up
     // when your component is unmounted or deps change.
     // Get access to Complaint documents.
@@ -17,9 +17,9 @@ const ListComplaints = () => {
     // Determine if the subscription is ready
     const rdy = subscription.ready();
     // Get the Complaint documents
-    const complaint = Complaints.collection.find({}).fetch();
+    const complaintcomplaint = Complaints.collection.find({}).fetch();
     return {
-      complaints: complaint,
+      complaints: complaintcomplaint,
       ready: rdy,
     };
   }, []);
@@ -33,8 +33,8 @@ const ListComplaints = () => {
           <Table striped bordered hover>
             <thead>
               <tr>
-                <th>FirstName</th>
-                <th>LastName</th>
+                <th>First Name</th>
+                <th>Last Name</th>
                 <th>Incident</th>
                 <th>Owner</th>
               </tr>
