@@ -9,6 +9,7 @@ const UserItem = ({ item }) => (
     <Image src={item.image} width={150} className="img-fluid" />
     <td>{item.name}</td>
     <td>{item.quantity}</td>
+    <td>{item.price}</td>
     <td>{item.condition}</td>
     <td>{item.category}</td>
     <td>{item.description}</td>
@@ -23,6 +24,7 @@ UserItem.propTypes = {
   item: PropTypes.shape({
     name: PropTypes.string,
     quantity: PropTypes.number,
+    price: PropTypes.number,
     image: PropTypes.string,
     condition: PropTypes.string,
     category: PropTypes.string,

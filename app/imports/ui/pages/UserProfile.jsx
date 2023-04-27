@@ -49,6 +49,7 @@ const UserProfile = () => {
                       <th>Image</th>
                       <th>Name</th>
                       <th>Quantity</th>
+                      <th>Price</th>
                       <th>Condition</th>
                       <th>Category</th>
                       <th>Description</th>
