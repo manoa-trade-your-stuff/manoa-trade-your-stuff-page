@@ -52,12 +52,13 @@ Meteor.publish(Complaints.userPublicationName, function () {
 });
 
 Meteor.publish(Complaints.adminPublicationName, function () {
+  console.log(Roles.userIsInRole(this.userId, 'admin'));
   if (this.userId && Roles.userIsInRole(this.userId, 'admin')) {
     return Complaints.collection.find();
   }
   return this.ready();
 });
-
+console.log('publications');
 // alanning:roles publication
 // Recommended code to publish roles for each user.
 Meteor.publish(null, function () {

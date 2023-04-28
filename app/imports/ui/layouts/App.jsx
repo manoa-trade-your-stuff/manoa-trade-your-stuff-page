@@ -37,7 +37,7 @@ import AddComplaints from '../pages/NotifyAdmin';
 /** Notify Admin */
 // eslint-disable-next-line import/no-duplicates
 import NotifyAdmin from '../pages/NotifyAdmin';
-import ListComplaints from '../pages/ListComplaints';
+import ListComplaintsAdmin from '../pages/ListComplaintsAdmin';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 const App = () => {
@@ -77,7 +77,7 @@ const App = () => {
           <Route path="/category/:category" element={<ProtectedRoute><Category /></ProtectedRoute>} />
 
           <Route path="/notify-admin" element={<NotifyAdmin />} />
-          <Route path="/listComplaintsAdmin" element={<AdminProtectedRoute><ListComplaints /></AdminProtectedRoute>} />
+          <Route path="/listComplaintsAdmin" element={<AdminProtectedRoute ready={ready}><ListComplaintsAdmin /></AdminProtectedRoute>} />
         </Routes>
         <Footer />
       </div>

@@ -30,6 +30,6 @@
   ],
 
   "defaultData": [
-    { "name": "Item1", "quantity": 1, "image": "https://m.media-amazon.com/images/I/21gWb-fkviL.__AC_SX300_SY300_QL70_FMwebp_.jpg","condition": "Good", "category": "Books", "description": "Description","owner": "john@foo.com" }
+    { "name": "Item1", "quantity": 1, "price": 100,"image": "https://m.media-amazon.com/images/I/21gWb-fkviL.__AC_SX300_SY300_QL70_FMwebp_.jpg","condition": "Good", "category": "Books", "description": "Description","owner": "john@foo.com" }
   ]
 }

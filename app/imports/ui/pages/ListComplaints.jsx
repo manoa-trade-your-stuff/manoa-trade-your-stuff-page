@@ -8,6 +8,7 @@ import ComplaintAdmin from '../components/ComplaintAdmin';
 
 /* Renders a table containing all of the Item documents. Use <ItemItem> to render each row. */
 const ListComplaints = () => {
+  console.log('listComplaints');
   // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
   const { ready, complaints } = useTracker(() => {
     // Note that this subscription will get cleaned up
@@ -18,11 +19,13 @@ const ListComplaints = () => {
     const rdy = subscription.ready();
     // Get the Complaint documents
     const complaintcomplaint = Complaints.collection.find({}).fetch();
+    console.log(rdy, complaintcomplaint);
     return {
       complaints: complaintcomplaint,
       ready: rdy,
     };
   }, []);
+  console.log(ready, complaints);
   return (ready ? (
     <Container className="py-3">
       <Row className="justify-content-center">
