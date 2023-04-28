@@ -41,10 +41,11 @@ const ListItem = () => {
                 <th>Condition</th>
                 <th>Category</th>
                 <th>Description</th>
+                <th>Remove</th>
               </tr>
             </thead>
             <tbody>
-              {items.map((item) => <Item key={item._id} item={item} />)}
+              {items.map((item) => <Item key={item._id} item={item} collection={Items.collection} />)}
             </tbody>
           </Table>
         </Col>
