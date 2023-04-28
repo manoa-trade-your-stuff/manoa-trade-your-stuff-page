@@ -26,7 +26,7 @@ const ListItemAdmin = () => {
       <Row className="justify-content-center">
         <Col md={7}>
           <Col className="text-center"><h2>List Item (Admin)</h2></Col>
-          <Table striped bordered hover>
+          <Table striped bordered hover variant="light">
             <thead>
               <tr>
                 <th>Image</th>
@@ -38,10 +38,11 @@ const ListItemAdmin = () => {
                 <th>Description</th>
                 <th>Owner</th>
                 <th>Edit</th>
+                <th>Remove</th>
               </tr>
             </thead>
             <tbody>
-              {items.map((item) => <ItemAdmin key={item._id} item={item} />)}
+              {items.map((item) => <ItemAdmin key={item._id} item={item} collection={Items.collection} />)}
             </tbody>
           </Table>
         </Col>

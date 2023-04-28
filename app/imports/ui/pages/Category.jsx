@@ -34,7 +34,7 @@ const Category = () => {
           <Col className="text-center">
             <h2>Item Lists</h2>
           </Col>
-          <Table striped bordered hover>
+          <Table striped bordered hover variant="light">
             <thead>
               <tr>
                 <th>Image</th>
