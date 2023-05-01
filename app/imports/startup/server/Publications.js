@@ -26,6 +26,7 @@ Meteor.publish(Items.usersPublicationName, function () {
   }
   return this.ready();
 });
+
 // Profile
 Meteor.publish(Profiles.userPublicationName, function () {
   if (this.userId) {
@@ -59,6 +60,7 @@ Meteor.publish(Complaints.adminPublicationName, function () {
   return this.ready();
 });
 console.log('publications');
+
 // alanning:roles publication
 // Recommended code to publish roles for each user.
 Meteor.publish(null, function () {

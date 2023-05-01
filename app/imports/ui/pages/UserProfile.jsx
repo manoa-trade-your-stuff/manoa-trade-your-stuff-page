@@ -7,7 +7,6 @@ import Profile from '../components/Profile';
 import { Profiles } from '../../api/profile/Profiles';
 import UserItem from '../components/UserItem';
 import { Items } from '../../api/item/Item';
-import ItemAdmin from '../components/ItemAdmin';
 
 /* Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 const UserProfile = () => {
@@ -59,7 +58,7 @@ const UserProfile = () => {
                     </tr>
                   </thead>
                   <tbody>
-                  {items.map((item) => <UserItem key={item._id} item={item} collection={Items.collection} />)}
+                    {items.map((item) => <UserItem key={item._id} item={item} collection={Items.collection} />)}
                   </tbody>
                 </Table>
               </Col>
