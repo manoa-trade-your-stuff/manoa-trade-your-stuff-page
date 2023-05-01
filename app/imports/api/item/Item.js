@@ -23,7 +23,7 @@ class ItemsCollection {
       },
       category: {
         type: String,
-        allowedValues: ['Books', 'Clothings', 'Electronics', 'Household', 'Others'],
+        allowedValues: ['Books', 'Clothing', 'Electronics', 'Household', 'Others'],
       },
       condition: {
         type: String,
