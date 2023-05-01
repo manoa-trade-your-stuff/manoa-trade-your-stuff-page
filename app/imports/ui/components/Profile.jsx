@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { Card, Image } from 'react-bootstrap';
 
 const Profile = ({ profile }) => (
-  <Card className="h-100 mx-auto" style={{ width: '350px', fontFamily: 'Trebuchet MS, sans-serif' }}>
+  <Card className="h-100 mx-auto" style={{ width: '350px', fontFamily: 'Trebuchet MS, sans-serif', border: '3px solid black' }}>
     <Card.Header>
       <div className="d-flex justify-content-center">
         <Image src={profile.image} width={300} />

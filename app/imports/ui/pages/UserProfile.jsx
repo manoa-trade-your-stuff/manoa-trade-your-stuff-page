@@ -43,7 +43,7 @@ const UserProfile = () => {
                 {profiles.map((profile) => (<Profile key={profile._id} profile={profile} />))}
               </Col>
               <Col>
-                <Table striped bordered hover variant="light">
+                <Table striped bordered hover variant="light" style={{ border: '3px solid black' }}>
                   <thead>
                     <tr>
                       <th>Image</th>

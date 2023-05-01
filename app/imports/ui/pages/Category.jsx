@@ -29,12 +29,12 @@ const Category = () => {
   return (ready ? (
     <Container className="py-3">
       <Row className="justify-content-center">
-        <Button id="homeButton"><a href="/categories" id="color">Home</a></Button>
+        <Button id="homeButton" style={{ backgroundColor: 'transparent', border: 'none' }}><a href="/categories" id="color">Home</a></Button>
         <Col md={7}>
           <Col className="text-center">
             <h2>Item Lists</h2>
           </Col>
-          <Table striped bordered hover variant="light">
+          <Table striped bordered hover variant="light" style={{ border: '3px solid black' }}>
             <thead>
               <tr>
                 <th>Image</th>
