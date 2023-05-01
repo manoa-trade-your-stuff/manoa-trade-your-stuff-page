@@ -12,6 +12,7 @@ const Item = ({ item }) => (
     <td>{item.condition}</td>
     <td>{item.category}</td>
     <td>{item.description}</td>
+    <td>{item.owner}</td>
   </tr>
 );
 
@@ -25,6 +26,7 @@ Item.propTypes = {
     condition: PropTypes.string,
     category: PropTypes.string,
     description: PropTypes.string,
+    owner: PropTypes.string,
     _id: PropTypes.string,
   }).isRequired,
   // eslint-disable-next-line react/forbid-prop-types

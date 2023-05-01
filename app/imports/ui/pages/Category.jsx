@@ -44,6 +44,7 @@ const Category = () => {
                 <th>Condition</th>
                 <th>Category</th>
                 <th>Description</th>
+                <th>Owner/ Contact Information</th>
               </tr>
             </thead>
             <tbody>
