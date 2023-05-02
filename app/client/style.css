@@ -3,7 +3,7 @@
 
 /* Set up some CSS variables to theme the application. */
 :root {
-  --matr-navbar-bg: lightgreen;
+  --matr-navbar-bg: var(--matr-navbar-text-color);
   --matr-navbar-bg-rgb: 12, 12, 139;
   --matr-navbar-text-color: green;
   --matr-navbar-highlight-text: blue;
@@ -13,18 +13,18 @@
  See https://getbootstrap.com/docs/5.2/customize/css-variables/
  */
 body {
-  --bs-dark: var(--matr-navbar-bg);
+  --bs-dark: var(--matr-navbar-text-color);
   --bs-dark-rgb: var(--matr-navbar-bg-rgb);
   background-size: cover;
   background: url("https://manoa.hawaii.edu/news/attachments/img11541_11869l.jpg");
-  color: yellow;
+  color: white;
 }
 h1 {
   color: white;
 }
 
 p {
-  color: black;
+  color: white;
 }
 
 
@@ -38,12 +38,12 @@ body .navbar {
 
 /* Set the alert background on the signin and signup pages. */
 #signin-page .alert-light, #signup-page .alert-light {
-  --bs-alert-bg: var(--matr-navbar-bg);
+  --bs-alert-bg: white;
 }
 
 /* Define custom styles */
 .gray-background {
-  background-color: var(--matr-navbar-bg);
+  background-color: var(--matr-navbar-text-color);
   color: var(--bs-dark);
   padding-top: 10px;
   padding-bottom: 20px;
@@ -69,7 +69,7 @@ footer, footer a {
 
 #homeButton {
   cursor: pointer;
-  background-color: green;
+  background-color: var(--matr-navbar-text-color);
   color: white;
 }
 
