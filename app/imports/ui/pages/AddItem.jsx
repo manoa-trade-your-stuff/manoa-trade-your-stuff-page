@@ -54,7 +54,7 @@ const AddItem = () => {
   // Render the form. Use Uniforms: https://github.com/vazco/uniforms
   let fRef = null;
   return (
-    <Container className="py-3">
+    <Container className="py-3" id="add-item-nav">
       <Row className="justify-content-center">
         <Col xs={5}>
           <Col className="text-center"><h2>Add Item</h2></Col>
