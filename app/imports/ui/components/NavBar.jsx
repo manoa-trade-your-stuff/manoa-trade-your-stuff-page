@@ -43,7 +43,7 @@ const NavBar = () => {
                   <Nav.Link id="list-item-admin-nav" as={NavLink} to="/listItemAdmin" key="admin">Item Admin</Nav.Link>
                 </Nav>
                 <Nav className="ml-auto">
-                  <Nav.Link id="list-item-admin-nav" as={NavLink} to="/listProfileAdmin" key="admin">Profile Admin</Nav.Link>
+                  <Nav.Link id="list-profile-admin-nav" as={NavLink} to="/listProfileAdmin" key="admin">Profile Admin</Nav.Link>
                 </Nav>
                 <Nav className="ml-auto">
                   <Nav.Link id="complaints-admin-nav" as={NavLink} to="/listComplaintsAdmin" key="admin">Complaints List Admin</Nav.Link>

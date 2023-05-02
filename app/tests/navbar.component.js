@@ -72,6 +72,11 @@ class NavBar {
   async gotoReportPage(testController) {
     await testController.click('#notify-admin-nav');
   }
+
+  /** Pull down login menu, go to sign up page. */
+  async gotoAdminProfilePage(testController) {
+    await testController.click('#list-profile-admin-nav');
+  }
 }
 
 export const navBar = new NavBar();
