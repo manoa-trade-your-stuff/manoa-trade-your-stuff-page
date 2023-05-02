@@ -3,7 +3,7 @@ name: ci-manoa-trade-your-stuff
 on:
   push:
     branches:
-      - main
+      - testcafe
 
 defaults:
   run:
