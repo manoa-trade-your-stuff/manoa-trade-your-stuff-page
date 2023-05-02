@@ -33,7 +33,7 @@ const ListComplaintsAdmin = () => {
           <Col className="text-center">
             <h2>Complaints List</h2>
           </Col>
-            <Table striped bordered hover variant="light">
+          <Table striped bordered hover variant="light">
             <thead>
               <tr>
                 <th>First Name</th>
