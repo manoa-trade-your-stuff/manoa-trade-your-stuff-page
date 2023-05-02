@@ -1,8 +1,8 @@
 import { Selector } from 'testcafe';
 
-class AdminProfilePage {
+class AdminItemListPage {
   constructor() {
-    this.pageId = '#list-profile-admin-nav';
+    this.pageId = '#list-item-admin-nav';
     this.pageSelector = Selector(this.pageId);
   }
 
@@ -13,4 +13,4 @@ class AdminProfilePage {
   }
 }
 
-export const adminProfilePage = new AdminProfilePage();
+export const adminItemListPage = new AdminItemListPage();

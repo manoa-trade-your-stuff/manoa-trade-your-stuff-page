@@ -74,8 +74,18 @@ class NavBar {
   }
 
   /** Pull down login menu, go to sign up page. */
+  async gotoAdminItemPage(testController) {
+    await testController.click('#list-item-admin-nav');
+  }
+
+  /** Pull down login menu, go to sign up page. */
   async gotoAdminProfilePage(testController) {
     await testController.click('#list-profile-admin-nav');
+  }
+
+  /** Pull down login menu, go to sign up page. */
+  async gotoAdminComplaintPage(testController) {
+    await testController.click('#complaints-admin-nav');
   }
 }
 

@@ -1,8 +1,8 @@
 import { Selector } from 'testcafe';
 
-class AdminProfilePage {
+class AdminComplaintPage {
   constructor() {
-    this.pageId = '#list-profile-admin-nav';
+    this.pageId = '#complaints-admin-nav';
     this.pageSelector = Selector(this.pageId);
   }
 
@@ -13,4 +13,4 @@ class AdminProfilePage {
   }
 }
 
-export const adminProfilePage = new AdminProfilePage();
+export const adminComplaintPage = new AdminComplaintPage();

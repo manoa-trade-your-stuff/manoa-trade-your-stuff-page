@@ -6,6 +6,9 @@ import { profilePage } from './profile.page';
 import { addItemPage } from './addItem.page';
 import { categoryPage } from './category.page';
 import { reportPage } from './report.page';
+import { adminItemListPage } from './adminItemList.page';
+import { adminProfilePage } from './adminProfile.page';
+import { adminComplaintPage } from './adminComplaint.page';
 
 /* global fixture:false, test:false */
 
@@ -92,4 +95,25 @@ test('Test that admin report page', async (testController) => {
   await signinPage.signin(testController, admin.username, admin.password);
   await navBar.gotoReportPage(testController);
   await reportPage.isDisplayed(testController);
+});
+
+test('Test that admin item list page', async (testController) => {
+  await navBar.gotoSignInPage(testController);
+  await signinPage.signin(testController, admin.username, admin.password);
+  await navBar.gotoAdminItemPage(testController);
+  await adminItemListPage.isDisplayed(testController);
+});
+
+test('Test that admin profile list page', async (testController) => {
+  await navBar.gotoSignInPage(testController);
+  await signinPage.signin(testController, admin.username, admin.password);
+  await navBar.gotoAdminProfilePage(testController);
+  await adminProfilePage.isDisplayed(testController);
+});
+
+test('Test that complaints list page', async (testController) => {
+  await navBar.gotoSignInPage(testController);
+  await signinPage.signin(testController, admin.username, admin.password);
+  await navBar.gotoAdminComplaintPage(testController);
+  await adminComplaintPage.isDisplayed(testController);
 });
